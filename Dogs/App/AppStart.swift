@@ -11,6 +11,7 @@ import Swinject
 public struct AppStart {
 
     private var appAssemblies: [Assembly] = [
+        APIAssembly(),
         BreedsAssembly(),
         InstanceProviderAssembly(),
     ]
@@ -23,3 +24,4 @@ public struct AppStart {
         return assembler.resolver.resolve(Instance.self)!
     }
 }
+
