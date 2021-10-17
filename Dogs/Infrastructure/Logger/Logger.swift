@@ -8,6 +8,6 @@
 import Foundation
 
 /// Proper logging is ommited in order to fulfill 8h time contract
-func log(_ message: String) {
+public func log(_ message: String) {
     print(message)
 }
