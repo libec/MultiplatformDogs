@@ -9,6 +9,11 @@ import UIKit
 
 final class BreedsViewController: UIViewController {
 
+    static func make() -> BreedsViewController {
+        let viewController = BreedsViewController()
+        return viewController
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .gray
