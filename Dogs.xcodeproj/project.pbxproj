@@ -14,6 +14,8 @@
 		2C17AC18271DF770006736EF /* BreedsRepositoryMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC17271DF770006736EF /* BreedsRepositoryMocks.swift */; };
 		2C17AC1A271DF832006736EF /* QueryBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC19271DF832006736EF /* QueryBreedsUseCase.swift */; };
 		2C17AC1C271DF8A0006736EF /* QueryBreedsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC1B271DF8A0006736EF /* QueryBreedsUseCaseTests.swift */; };
+		2C17AC1E271DFB3D006736EF /* BreedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC1D271DFB3D006736EF /* BreedsViewModel.swift */; };
+		2C17AC21271DFCB7006736EF /* BreedsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC20271DFCB7006736EF /* BreedsViewModelTests.swift */; };
 		2C423F18271C83B5002128CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C423F17271C83B5002128CE /* LaunchScreen.storyboard */; };
 		2C423F1B271C88B0002128CE /* InstanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C423F1A271C88B0002128CE /* InstanceProvider.swift */; };
 		2C423F1E271C8A3A002128CE /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 2C423F1D271C8A3A002128CE /* Swinject */; };
@@ -62,6 +64,8 @@
 		2C17AC17271DF770006736EF /* BreedsRepositoryMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsRepositoryMocks.swift; sourceTree = "<group>"; };
 		2C17AC19271DF832006736EF /* QueryBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryBreedsUseCase.swift; sourceTree = "<group>"; };
 		2C17AC1B271DF8A0006736EF /* QueryBreedsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryBreedsUseCaseTests.swift; sourceTree = "<group>"; };
+		2C17AC1D271DFB3D006736EF /* BreedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewModel.swift; sourceTree = "<group>"; };
+		2C17AC20271DFCB7006736EF /* BreedsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsViewModelTests.swift; sourceTree = "<group>"; };
 		2C423F17271C83B5002128CE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C423F1A271C88B0002128CE /* InstanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceProvider.swift; sourceTree = "<group>"; };
 		2C423F23271C8AB5002128CE /* SwinjectInstanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectInstanceProvider.swift; sourceTree = "<group>"; };
@@ -138,6 +142,14 @@
 				2C17AC17271DF770006736EF /* BreedsRepositoryMocks.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		2C17AC1F271DFCAC006736EF /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				2C17AC20271DFCB7006736EF /* BreedsViewModelTests.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		2C423F19271C8899002128CE /* Instance Provider */ = {
@@ -278,6 +290,7 @@
 		2C609A6D271C92F300C564B9 /* Breeds */ = {
 			isa = PBXGroup;
 			children = (
+				2C17AC1F271DFCAC006736EF /* Presentation */,
 				2C17AC16271DF768006736EF /* Mocks */,
 				2C17AC0C271DEF8B006736EF /* Domain */,
 			);
@@ -301,6 +314,7 @@
 		2C609A70271C932300C564B9 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				2C17AC1D271DFB3D006736EF /* BreedsViewModel.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -575,6 +589,7 @@
 				2C423F37271C8EAB002128CE /* APIAssembly.swift in Sources */,
 				2C423F2B271C8AFE002128CE /* BreedsAssembly.swift in Sources */,
 				2C423F34271C8E7F002128CE /* APIConfiguration.swift in Sources */,
+				2C17AC1E271DFB3D006736EF /* BreedsViewModel.swift in Sources */,
 				2C609A6C271C927000C564B9 /* Logger.swift in Sources */,
 				2CCD6B93271C951C0049C1D5 /* BreedsResource.swift in Sources */,
 				2CCD6B95271C954D0049C1D5 /* BreedsRemoteResource.swift in Sources */,
@@ -602,6 +617,7 @@
 			files = (
 				2C17AC18271DF770006736EF /* BreedsRepositoryMocks.swift in Sources */,
 				2C17AC1C271DF8A0006736EF /* QueryBreedsUseCaseTests.swift in Sources */,
+				2C17AC21271DFCB7006736EF /* BreedsViewModelTests.swift in Sources */,
 				2C17AC11271DF4EF006736EF /* TestError.swift in Sources */,
 				2C17AC0E271DEF99006736EF /* BreedsLocalRepositoryTests.swift in Sources */,
 				2CDBA1FA271C915E00CDD1F2 /* DogsTests.swift in Sources */,
