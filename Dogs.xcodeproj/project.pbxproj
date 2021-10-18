@@ -12,6 +12,8 @@
 		2C17AC13271DF6CC006736EF /* FetchBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */; };
 		2C17AC15271DF6DF006736EF /* FetchBreedsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC14271DF6DF006736EF /* FetchBreedsUseCaseTests.swift */; };
 		2C17AC18271DF770006736EF /* BreedsRepositoryMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC17271DF770006736EF /* BreedsRepositoryMocks.swift */; };
+		2C17AC1A271DF832006736EF /* QueryBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC19271DF832006736EF /* QueryBreedsUseCase.swift */; };
+		2C17AC1C271DF8A0006736EF /* QueryBreedsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC1B271DF8A0006736EF /* QueryBreedsUseCaseTests.swift */; };
 		2C423F18271C83B5002128CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C423F17271C83B5002128CE /* LaunchScreen.storyboard */; };
 		2C423F1B271C88B0002128CE /* InstanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C423F1A271C88B0002128CE /* InstanceProvider.swift */; };
 		2C423F1E271C8A3A002128CE /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 2C423F1D271C8A3A002128CE /* Swinject */; };
@@ -58,6 +60,8 @@
 		2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBreedsUseCase.swift; sourceTree = "<group>"; };
 		2C17AC14271DF6DF006736EF /* FetchBreedsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBreedsUseCaseTests.swift; sourceTree = "<group>"; };
 		2C17AC17271DF770006736EF /* BreedsRepositoryMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsRepositoryMocks.swift; sourceTree = "<group>"; };
+		2C17AC19271DF832006736EF /* QueryBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryBreedsUseCase.swift; sourceTree = "<group>"; };
+		2C17AC1B271DF8A0006736EF /* QueryBreedsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryBreedsUseCaseTests.swift; sourceTree = "<group>"; };
 		2C423F17271C83B5002128CE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C423F1A271C88B0002128CE /* InstanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceProvider.swift; sourceTree = "<group>"; };
 		2C423F23271C8AB5002128CE /* SwinjectInstanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectInstanceProvider.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			children = (
 				2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */,
 				2C17AC14271DF6DF006736EF /* FetchBreedsUseCaseTests.swift */,
+				2C17AC1B271DF8A0006736EF /* QueryBreedsUseCaseTests.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -190,6 +195,7 @@
 				2CCD6B92271C951B0049C1D5 /* BreedsResource.swift */,
 				2CCD6BA4271C9C670049C1D5 /* BreedsRepository.swift */,
 				2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */,
+				2C17AC19271DF832006736EF /* QueryBreedsUseCase.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -565,6 +571,7 @@
 				2C423F24271C8AB5002128CE /* SwinjectInstanceProvider.swift in Sources */,
 				2C423F1B271C88B0002128CE /* InstanceProvider.swift in Sources */,
 				2C609A74271C946A00C564B9 /* Dog.swift in Sources */,
+				2C17AC1A271DF832006736EF /* QueryBreedsUseCase.swift in Sources */,
 				2C423F37271C8EAB002128CE /* APIAssembly.swift in Sources */,
 				2C423F2B271C8AFE002128CE /* BreedsAssembly.swift in Sources */,
 				2C423F34271C8E7F002128CE /* APIConfiguration.swift in Sources */,
@@ -594,6 +601,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C17AC18271DF770006736EF /* BreedsRepositoryMocks.swift in Sources */,
+				2C17AC1C271DF8A0006736EF /* QueryBreedsUseCaseTests.swift in Sources */,
 				2C17AC11271DF4EF006736EF /* TestError.swift in Sources */,
 				2C17AC0E271DEF99006736EF /* BreedsLocalRepositoryTests.swift in Sources */,
 				2CDBA1FA271C915E00CDD1F2 /* DogsTests.swift in Sources */,

@@ -17,6 +17,9 @@ public final class FetchBreedsUseCaseImpl: FetchBreedsUseCase {
         self.repository = repository
     }
 
+    // This is the Command part of CQRS principle used on domain
+    // it's also simple in this case but imagine it being operation which
+    // changes data somehow
     public func fetch() {
         repository.fetch()
     }
