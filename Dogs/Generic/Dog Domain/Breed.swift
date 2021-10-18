@@ -5,7 +5,7 @@
 //  Created by Libor Huspenina on 17.10.2021.
 //
 
-public struct Breed {
+public struct Breed: Equatable {
     public let name: String
 
     public init(name: String) {

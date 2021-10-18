@@ -15,7 +15,7 @@ class BreedRemoteResourceTests: XCTestCase {
 
     func test_fetched_remote_resource() {
         let apiConfiguration = ProductionAPIConfiguration()
-        let sut = BreedRemoteResource(apiConfiguration: apiConfiguration)
+        let sut = BreedsRemoteResource(apiConfiguration: apiConfiguration)
 
         let expectation = XCTestExpectation()
 

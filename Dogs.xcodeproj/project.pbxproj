@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C17AC0E271DEF99006736EF /* BreedsLocalRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */; };
+		2C17AC11271DF4EF006736EF /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC10271DF4EF006736EF /* TestError.swift */; };
 		2C423F18271C83B5002128CE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C423F17271C83B5002128CE /* LaunchScreen.storyboard */; };
 		2C423F1B271C88B0002128CE /* InstanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C423F1A271C88B0002128CE /* InstanceProvider.swift */; };
 		2C423F1E271C8A3A002128CE /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 2C423F1D271C8A3A002128CE /* Swinject */; };
@@ -23,9 +25,10 @@
 		2CAC2388271C7F1E004DEB5A /* BreedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAC2387271C7F1E004DEB5A /* BreedsViewController.swift */; };
 		2CB30FCF271C7DC500E8E196 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB30FCE271C7DC500E8E196 /* AppDelegate.swift */; };
 		2CB30FD8271C7DC600E8E196 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CB30FD7271C7DC600E8E196 /* Assets.xcassets */; };
-		2CCD6B93271C951C0049C1D5 /* BreedResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD6B92271C951B0049C1D5 /* BreedResource.swift */; };
-		2CCD6B95271C954D0049C1D5 /* BreedRemoteResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD6B94271C954D0049C1D5 /* BreedRemoteResource.swift */; };
+		2CCD6B93271C951C0049C1D5 /* BreedsResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD6B92271C951B0049C1D5 /* BreedsResource.swift */; };
+		2CCD6B95271C954D0049C1D5 /* BreedsRemoteResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD6B94271C954D0049C1D5 /* BreedsRemoteResource.swift */; };
 		2CCD6B9E271C961E0049C1D5 /* IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD6B9D271C961E0049C1D5 /* IntegrationTests.swift */; };
+		2CCD6BA5271C9C670049C1D5 /* BreedsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCD6BA4271C9C670049C1D5 /* BreedsRepository.swift */; };
 		2CDBA1FA271C915E00CDD1F2 /* DogsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDBA1F9271C915E00CDD1F2 /* DogsTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsLocalRepositoryTests.swift; sourceTree = "<group>"; };
+		2C17AC10271DF4EF006736EF /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		2C423F17271C83B5002128CE /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C423F1A271C88B0002128CE /* InstanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstanceProvider.swift; sourceTree = "<group>"; };
 		2C423F23271C8AB5002128CE /* SwinjectInstanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwinjectInstanceProvider.swift; sourceTree = "<group>"; };
@@ -63,10 +68,11 @@
 		2CB30FCB271C7DC500E8E196 /* Dogs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dogs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CB30FCE271C7DC500E8E196 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CB30FD7271C7DC600E8E196 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2CCD6B92271C951B0049C1D5 /* BreedResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedResource.swift; sourceTree = "<group>"; };
-		2CCD6B94271C954D0049C1D5 /* BreedRemoteResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedRemoteResource.swift; sourceTree = "<group>"; };
+		2CCD6B92271C951B0049C1D5 /* BreedsResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsResource.swift; sourceTree = "<group>"; };
+		2CCD6B94271C954D0049C1D5 /* BreedsRemoteResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsRemoteResource.swift; sourceTree = "<group>"; };
 		2CCD6B9B271C961E0049C1D5 /* IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IntegrationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CCD6B9D271C961E0049C1D5 /* IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegrationTests.swift; sourceTree = "<group>"; };
+		2CCD6BA4271C9C670049C1D5 /* BreedsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsRepository.swift; sourceTree = "<group>"; };
 		2CDBA1F7271C915E00CDD1F2 /* DogsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CDBA1F9271C915E00CDD1F2 /* DogsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +104,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C17AC0C271DEF8B006736EF /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		2C17AC0F271DF4E7006736EF /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2C17AC10271DF4EF006736EF /* TestError.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		2C423F19271C8899002128CE /* Instance Provider */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +172,8 @@
 		2C423F2F271C8C75002128CE /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				2CCD6B92271C951B0049C1D5 /* BreedsResource.swift */,
+				2CCD6BA4271C9C670049C1D5 /* BreedsRepository.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -157,8 +181,7 @@
 		2C423F30271C8C79002128CE /* Data Access */ = {
 			isa = PBXGroup;
 			children = (
-				2CCD6B92271C951B0049C1D5 /* BreedResource.swift */,
-				2CCD6B94271C954D0049C1D5 /* BreedRemoteResource.swift */,
+				2CCD6B94271C954D0049C1D5 /* BreedsRemoteResource.swift */,
 			);
 			path = "Data Access";
 			sourceTree = "<group>";
@@ -191,6 +214,7 @@
 		2C609A66271C918A00C564B9 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				2C17AC0F271DF4E7006736EF /* Mocks */,
 				2C609A67271C918F00C564B9 /* API */,
 			);
 			path = Generic;
@@ -232,6 +256,7 @@
 		2C609A6D271C92F300C564B9 /* Breeds */ = {
 			isa = PBXGroup;
 			children = (
+				2C17AC0C271DEF8B006736EF /* Domain */,
 			);
 			path = Breeds;
 			sourceTree = "<group>";
@@ -527,13 +552,14 @@
 				2C423F2B271C8AFE002128CE /* BreedsAssembly.swift in Sources */,
 				2C423F34271C8E7F002128CE /* APIConfiguration.swift in Sources */,
 				2C609A6C271C927000C564B9 /* Logger.swift in Sources */,
-				2CCD6B93271C951C0049C1D5 /* BreedResource.swift in Sources */,
-				2CCD6B95271C954D0049C1D5 /* BreedRemoteResource.swift in Sources */,
+				2CCD6B93271C951C0049C1D5 /* BreedsResource.swift in Sources */,
+				2CCD6B95271C954D0049C1D5 /* BreedsRemoteResource.swift in Sources */,
 				2C423F28271C8ADD002128CE /* AppStart.swift in Sources */,
 				2CB30FCF271C7DC500E8E196 /* AppDelegate.swift in Sources */,
 				2CAC2388271C7F1E004DEB5A /* BreedsViewController.swift in Sources */,
 				2C423F26271C8ACA002128CE /* InstanceProviderAssembly.swift in Sources */,
 				2C609A72271C93EE00C564B9 /* Breed.swift in Sources */,
+				2CCD6BA5271C9C670049C1D5 /* BreedsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +575,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C17AC11271DF4EF006736EF /* TestError.swift in Sources */,
+				2C17AC0E271DEF99006736EF /* BreedsLocalRepositoryTests.swift in Sources */,
 				2CDBA1FA271C915E00CDD1F2 /* DogsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

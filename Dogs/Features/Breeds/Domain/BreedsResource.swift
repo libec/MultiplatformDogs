@@ -7,6 +7,6 @@
 
 import Combine
 
-public protocol BreedResource {
+public protocol BreedsResource {
     func fetch() -> AnyPublisher<[Breed], Error>
 }
