@@ -8,8 +8,13 @@
 import Combine
 import UIKit
 
+public struct DisplayableBreeds {
+    public let name: String
+    public let selection: (() -> Void)
+}
+
 public struct BreedsViewModelOutput {
-    public let breedNames: [String]
+    public let displayableBreeds: [DisplayableBreeds]
 }
 
 public protocol BreedsViewModel {
@@ -21,21 +26,34 @@ public final class BreedsViewModelImpl: BreedsViewModel {
 
     private let fetchUseCase: FetchBreedsUseCase
     private let queryUseCase: QueryBreedsUseCase
+    private let selectBreedUseCase: SelectBreedUseCase
 
-    @Published private var outputProperty: BreedsViewModelOutput = .init(breedNames: [])
+    @Published private var outputProperty: BreedsViewModelOutput = .init(displayableBreeds: [])
 
     public var output: AnyPublisher<BreedsViewModelOutput, Never> {
         $outputProperty.eraseToAnyPublisher()
     }
 
-    public init(fetchUseCase: FetchBreedsUseCase, queryUseCase: QueryBreedsUseCase) {
+    public init(
+        fetchUseCase: FetchBreedsUseCase,
+        queryUseCase: QueryBreedsUseCase,
+        selectBreedUseCase: SelectBreedUseCase
+    ) {
         self.fetchUseCase = fetchUseCase
         self.queryUseCase = queryUseCase
+        self.selectBreedUseCase = selectBreedUseCase
 
         queryUseCase
             .query()
             .map { breeds in
-                BreedsViewModelOutput(breedNames: breeds.map(\.name.capitalized))
+                BreedsViewModelOutput(
+                    displayableBreeds: breeds.map { breed in
+                        DisplayableBreeds(name: breed.name.capitalized) { [weak self] () -> Void in
+                            guard let unwrappedSelf = self else { return }
+                            unwrappedSelf.selectBreedUseCase.select(breed: breed)
+                        }
+                    }
+                )
             }
             .assign(to: &$outputProperty)
     }

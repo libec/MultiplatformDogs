@@ -17,6 +17,7 @@ final class BreedsDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .blue
         navigationItem.title = "Breed Detail"
     }
 }

@@ -13,6 +13,9 @@
 		2C0CCA5527209DBB00A1548D /* NavigationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA5427209DBB00A1548D /* NavigationAssembly.swift */; };
 		2C0CCA5D2720A40000A1548D /* SelectedBreedRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA5C2720A40000A1548D /* SelectedBreedRepositoryTests.swift */; };
 		2C0CCA5F2720A5EB00A1548D /* SelectedBreedsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA5E2720A5EB00A1548D /* SelectedBreedsAssembly.swift */; };
+		2C0CCA612720A8A900A1548D /* SelectBreedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA602720A8A900A1548D /* SelectBreedUseCaseTests.swift */; };
+		2C0CCA642720A90000A1548D /* SelectedBreedRepositoryMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA632720A90000A1548D /* SelectedBreedRepositoryMocks.swift */; };
+		2C0CCA662720A9F000A1548D /* QuerySelectedBreedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA652720A9F000A1548D /* QuerySelectedBreedUseCaseTests.swift */; };
 		2C17AC0E271DEF99006736EF /* BreedsLocalRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */; };
 		2C17AC11271DF4EF006736EF /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC10271DF4EF006736EF /* TestError.swift */; };
 		2C17AC13271DF6CC006736EF /* FetchBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */; };
@@ -74,6 +77,9 @@
 		2C0CCA5427209DBB00A1548D /* NavigationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAssembly.swift; sourceTree = "<group>"; };
 		2C0CCA5C2720A40000A1548D /* SelectedBreedRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBreedRepositoryTests.swift; sourceTree = "<group>"; };
 		2C0CCA5E2720A5EB00A1548D /* SelectedBreedsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBreedsAssembly.swift; sourceTree = "<group>"; };
+		2C0CCA602720A8A900A1548D /* SelectBreedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBreedUseCaseTests.swift; sourceTree = "<group>"; };
+		2C0CCA632720A90000A1548D /* SelectedBreedRepositoryMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBreedRepositoryMocks.swift; sourceTree = "<group>"; };
+		2C0CCA652720A9F000A1548D /* QuerySelectedBreedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySelectedBreedUseCaseTests.swift; sourceTree = "<group>"; };
 		2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsLocalRepositoryTests.swift; sourceTree = "<group>"; };
 		2C17AC10271DF4EF006736EF /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBreedsUseCase.swift; sourceTree = "<group>"; };
@@ -235,6 +241,7 @@
 		2C0CCA5A2720A3E500A1548D /* Selected Breeds */ = {
 			isa = PBXGroup;
 			children = (
+				2C0CCA622720A8F800A1548D /* Mocks */,
 				2C0CCA5B2720A3EE00A1548D /* Domain */,
 			);
 			path = "Selected Breeds";
@@ -244,8 +251,18 @@
 			isa = PBXGroup;
 			children = (
 				2C0CCA5C2720A40000A1548D /* SelectedBreedRepositoryTests.swift */,
+				2C0CCA602720A8A900A1548D /* SelectBreedUseCaseTests.swift */,
+				2C0CCA652720A9F000A1548D /* QuerySelectedBreedUseCaseTests.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		2C0CCA622720A8F800A1548D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				2C0CCA632720A90000A1548D /* SelectedBreedRepositoryMocks.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		2C17AC0C271DEF8B006736EF /* Domain */ = {
@@ -770,14 +787,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0CCA662720A9F000A1548D /* QuerySelectedBreedUseCaseTests.swift in Sources */,
 				2C17AC18271DF770006736EF /* BreedsRepositoryMocks.swift in Sources */,
 				2C17AC1C271DF8A0006736EF /* QueryBreedsUseCaseTests.swift in Sources */,
 				2C17AC21271DFCB7006736EF /* BreedsViewModelTests.swift in Sources */,
 				2C17AC11271DF4EF006736EF /* TestError.swift in Sources */,
 				2C17AC0E271DEF99006736EF /* BreedsLocalRepositoryTests.swift in Sources */,
+				2C0CCA642720A90000A1548D /* SelectedBreedRepositoryMocks.swift in Sources */,
 				2CDBA1FA271C915E00CDD1F2 /* DogsTests.swift in Sources */,
 				2C17AC15271DF6DF006736EF /* FetchBreedsUseCaseTests.swift in Sources */,
 				2C0CCA5D2720A40000A1548D /* SelectedBreedRepositoryTests.swift in Sources */,
+				2C0CCA612720A8A900A1548D /* SelectBreedUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

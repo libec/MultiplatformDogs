@@ -13,9 +13,13 @@ public protocol QuerySelectedBreedUseCase {
 
 public final class QuerySelectedBreedUseCaseImpl: QuerySelectedBreedUseCase {
 
-    public init() { }
+    private let selectedBreedRepository: SelectedBreedRepository
+
+    public init(selectedBreedRepository: SelectedBreedRepository) {
+        self.selectedBreedRepository = selectedBreedRepository
+    }
 
     public func selectedBreed() -> AnyPublisher<Breed?, Never> {
-        Empty().eraseToAnyPublisher()
+        selectedBreedRepository.selectedBreed
     }
 }

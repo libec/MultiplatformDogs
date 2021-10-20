@@ -63,7 +63,7 @@ extension BreedsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        displayedBreeds?.breedNames.count ?? 0
+        displayedBreeds?.displayableBreeds.count ?? 0
     }
 }
 
@@ -71,13 +71,18 @@ extension BreedsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard let breeds = displayedBreeds else { return }
-        if breeds.breedNames.indices.contains(indexPath.row) {
-            let breed = breeds.breedNames[indexPath.row]
+        if breeds.displayableBreeds.indices.contains(indexPath.row) {
+            let breed = breeds.displayableBreeds[indexPath.row].name
             cell.textLabel?.text = breed
         }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        guard let breeds = displayedBreeds else { return }
+
+        if breeds.displayableBreeds.indices.contains(indexPath.row) {
+            breeds.displayableBreeds[indexPath.row].selection()
+        }
     }
 }
