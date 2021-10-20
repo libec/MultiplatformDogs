@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0CCA4827209C1200A1548D /* BreedDetatilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA4727209C1200A1548D /* BreedDetatilViewController.swift */; };
+		2C0CCA4B27209C2200A1548D /* BreedDetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA4A27209C2200A1548D /* BreedDetailAssembly.swift */; };
+		2C0CCA4E27209C8200A1548D /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA4D27209C8200A1548D /* AppAssembly.swift */; };
+		2C0CCA5527209DBB00A1548D /* NavigationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA5427209DBB00A1548D /* NavigationAssembly.swift */; };
+		2C0CCA5D2720A40000A1548D /* SelectedBreedRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA5C2720A40000A1548D /* SelectedBreedRepositoryTests.swift */; };
+		2C0CCA5F2720A5EB00A1548D /* SelectedBreedsAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA5E2720A5EB00A1548D /* SelectedBreedsAssembly.swift */; };
 		2C17AC0E271DEF99006736EF /* BreedsLocalRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */; };
 		2C17AC11271DF4EF006736EF /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC10271DF4EF006736EF /* TestError.swift */; };
 		2C17AC13271DF6CC006736EF /* FetchBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */; };
@@ -26,6 +32,11 @@
 		2C423F2E271C8B70002128CE /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = 2C423F2D271C8B70002128CE /* SwinjectAutoregistration */; };
 		2C423F34271C8E7F002128CE /* APIConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C423F33271C8E7F002128CE /* APIConfiguration.swift */; };
 		2C423F37271C8EAB002128CE /* APIAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C423F36271C8EAB002128CE /* APIAssembly.swift */; };
+		2C54DA21272096FA00A37A10 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C54DA20272096FA00A37A10 /* Coordinator.swift */; };
+		2C54DA242720979800A37A10 /* SelectBreedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C54DA232720979800A37A10 /* SelectBreedUseCase.swift */; };
+		2C54DA26272097AF00A37A10 /* QuerySelectedBreedUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C54DA25272097AF00A37A10 /* QuerySelectedBreedUseCase.swift */; };
+		2C54DA28272098A600A37A10 /* SelectedBreedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C54DA27272098A600A37A10 /* SelectedBreedRepository.swift */; };
+		2C54DA2A2720994500A37A10 /* UIKitCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C54DA292720994500A37A10 /* UIKitCoordinator.swift */; };
 		2C609A6C271C927000C564B9 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C609A6B271C927000C564B9 /* Logger.swift */; };
 		2C609A72271C93EE00C564B9 /* Breed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C609A71271C93EE00C564B9 /* Breed.swift */; };
 		2C609A74271C946A00C564B9 /* Dog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C609A73271C946A00C564B9 /* Dog.swift */; };
@@ -57,6 +68,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C0CCA4727209C1200A1548D /* BreedDetatilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetatilViewController.swift; sourceTree = "<group>"; };
+		2C0CCA4A27209C2200A1548D /* BreedDetailAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailAssembly.swift; sourceTree = "<group>"; };
+		2C0CCA4D27209C8200A1548D /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
+		2C0CCA5427209DBB00A1548D /* NavigationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAssembly.swift; sourceTree = "<group>"; };
+		2C0CCA5C2720A40000A1548D /* SelectedBreedRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBreedRepositoryTests.swift; sourceTree = "<group>"; };
+		2C0CCA5E2720A5EB00A1548D /* SelectedBreedsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBreedsAssembly.swift; sourceTree = "<group>"; };
 		2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsLocalRepositoryTests.swift; sourceTree = "<group>"; };
 		2C17AC10271DF4EF006736EF /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBreedsUseCase.swift; sourceTree = "<group>"; };
@@ -74,6 +91,11 @@
 		2C423F2A271C8AFE002128CE /* BreedsAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsAssembly.swift; sourceTree = "<group>"; };
 		2C423F33271C8E7F002128CE /* APIConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConfiguration.swift; sourceTree = "<group>"; };
 		2C423F36271C8EAB002128CE /* APIAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAssembly.swift; sourceTree = "<group>"; };
+		2C54DA20272096FA00A37A10 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		2C54DA232720979800A37A10 /* SelectBreedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBreedUseCase.swift; sourceTree = "<group>"; };
+		2C54DA25272097AF00A37A10 /* QuerySelectedBreedUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySelectedBreedUseCase.swift; sourceTree = "<group>"; };
+		2C54DA27272098A600A37A10 /* SelectedBreedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBreedRepository.swift; sourceTree = "<group>"; };
+		2C54DA292720994500A37A10 /* UIKitCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitCoordinator.swift; sourceTree = "<group>"; };
 		2C609A6B271C927000C564B9 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		2C609A71271C93EE00C564B9 /* Breed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Breed.swift; sourceTree = "<group>"; };
 		2C609A73271C946A00C564B9 /* Dog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dog.swift; sourceTree = "<group>"; };
@@ -118,6 +140,114 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2C0CCA4627209C0800A1548D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C0CCA4727209C1200A1548D /* BreedDetatilViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C0CCA4927209C1600A1548D /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				2C0CCA4A27209C2200A1548D /* BreedDetailAssembly.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		2C0CCA4C27209C6E00A1548D /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				2C0CCA4D27209C8200A1548D /* AppAssembly.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		2C0CCA4F27209D8400A1548D /* Scene Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				2C0CCA5327209DB000A1548D /* Injection */,
+				2C0CCA5227209DA700A1548D /* Presentation */,
+				2C0CCA5127209D9B00A1548D /* View */,
+			);
+			path = "Scene Navigation";
+			sourceTree = "<group>";
+		};
+		2C0CCA5127209D9B00A1548D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2C54DA292720994500A37A10 /* UIKitCoordinator.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2C0CCA5227209DA700A1548D /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				2C54DA20272096FA00A37A10 /* Coordinator.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		2C0CCA5327209DB000A1548D /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				2C0CCA5427209DBB00A1548D /* NavigationAssembly.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		2C0CCA5627209FEF00A1548D /* Selected Breeds */ = {
+			isa = PBXGroup;
+			children = (
+				2C0CCA592720A0BC00A1548D /* Injection */,
+				2C0CCA572720A00A00A1548D /* Domain */,
+			);
+			path = "Selected Breeds";
+			sourceTree = "<group>";
+		};
+		2C0CCA572720A00A00A1548D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				2C54DA25272097AF00A37A10 /* QuerySelectedBreedUseCase.swift */,
+				2C54DA232720979800A37A10 /* SelectBreedUseCase.swift */,
+				2C54DA27272098A600A37A10 /* SelectedBreedRepository.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		2C0CCA582720A01500A1548D /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		2C0CCA592720A0BC00A1548D /* Injection */ = {
+			isa = PBXGroup;
+			children = (
+				2C0CCA5E2720A5EB00A1548D /* SelectedBreedsAssembly.swift */,
+			);
+			path = Injection;
+			sourceTree = "<group>";
+		};
+		2C0CCA5A2720A3E500A1548D /* Selected Breeds */ = {
+			isa = PBXGroup;
+			children = (
+				2C0CCA5B2720A3EE00A1548D /* Domain */,
+			);
+			path = "Selected Breeds";
+			sourceTree = "<group>";
+		};
+		2C0CCA5B2720A3EE00A1548D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				2C0CCA5C2720A40000A1548D /* SelectedBreedRepositoryTests.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		2C17AC0C271DEF8B006736EF /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,9 +375,19 @@
 			path = Injection;
 			sourceTree = "<group>";
 		};
+		2C54DA222720978600A37A10 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				2C609A73271C946A00C564B9 /* Dog.swift */,
+				2C609A71271C93EE00C564B9 /* Breed.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		2C609A66271C918A00C564B9 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				2C0CCA5A2720A3E500A1548D /* Selected Breeds */,
 				2C17AC0F271DF4E7006736EF /* Mocks */,
 				2C609A67271C918F00C564B9 /* API */,
 			);
@@ -300,6 +440,9 @@
 		2C609A6E271C92FC00C564B9 /* Breed Detail */ = {
 			isa = PBXGroup;
 			children = (
+				2C0CCA582720A01500A1548D /* Presentation */,
+				2C0CCA4927209C1600A1548D /* Injection */,
+				2C0CCA4627209C0800A1548D /* View */,
 			);
 			path = "Breed Detail";
 			sourceTree = "<group>";
@@ -322,8 +465,7 @@
 		2C609A75271C94A200C564B9 /* Dog Domain */ = {
 			isa = PBXGroup;
 			children = (
-				2C609A73271C946A00C564B9 /* Dog.swift */,
-				2C609A71271C93EE00C564B9 /* Breed.swift */,
+				2C54DA222720978600A37A10 /* Entity */,
 			);
 			path = "Dog Domain";
 			sourceTree = "<group>";
@@ -341,6 +483,7 @@
 		2CAC2382271C7E5A004DEB5A /* App */ = {
 			isa = PBXGroup;
 			children = (
+				2C0CCA4C27209C6E00A1548D /* Injection */,
 				2CAC2381271C7E35004DEB5A /* Assets */,
 				2CB30FCE271C7DC500E8E196 /* AppDelegate.swift */,
 				2C423F27271C8ADD002128CE /* AppStart.swift */,
@@ -369,8 +512,10 @@
 		2CAC2385271C7EE0004DEB5A /* Generic */ = {
 			isa = PBXGroup;
 			children = (
-				2C609A75271C94A200C564B9 /* Dog Domain */,
 				2C423F32271C8E6F002128CE /* API */,
+				2C609A75271C94A200C564B9 /* Dog Domain */,
+				2C0CCA4F27209D8400A1548D /* Scene Navigation */,
+				2C0CCA5627209FEF00A1548D /* Selected Breeds */,
 			);
 			path = Generic;
 			sourceTree = "<group>";
@@ -585,20 +730,30 @@
 				2C423F24271C8AB5002128CE /* SwinjectInstanceProvider.swift in Sources */,
 				2C423F1B271C88B0002128CE /* InstanceProvider.swift in Sources */,
 				2C609A74271C946A00C564B9 /* Dog.swift in Sources */,
+				2C0CCA4E27209C8200A1548D /* AppAssembly.swift in Sources */,
 				2C17AC1A271DF832006736EF /* QueryBreedsUseCase.swift in Sources */,
 				2C423F37271C8EAB002128CE /* APIAssembly.swift in Sources */,
 				2C423F2B271C8AFE002128CE /* BreedsAssembly.swift in Sources */,
+				2C54DA21272096FA00A37A10 /* Coordinator.swift in Sources */,
 				2C423F34271C8E7F002128CE /* APIConfiguration.swift in Sources */,
 				2C17AC1E271DFB3D006736EF /* BreedsViewModel.swift in Sources */,
+				2C54DA28272098A600A37A10 /* SelectedBreedRepository.swift in Sources */,
 				2C609A6C271C927000C564B9 /* Logger.swift in Sources */,
 				2CCD6B93271C951C0049C1D5 /* BreedsResource.swift in Sources */,
 				2CCD6B95271C954D0049C1D5 /* BreedsRemoteResource.swift in Sources */,
 				2C423F28271C8ADD002128CE /* AppStart.swift in Sources */,
+				2C54DA242720979800A37A10 /* SelectBreedUseCase.swift in Sources */,
+				2C0CCA5527209DBB00A1548D /* NavigationAssembly.swift in Sources */,
 				2CB30FCF271C7DC500E8E196 /* AppDelegate.swift in Sources */,
+				2C54DA2A2720994500A37A10 /* UIKitCoordinator.swift in Sources */,
 				2C17AC13271DF6CC006736EF /* FetchBreedsUseCase.swift in Sources */,
 				2CAC2388271C7F1E004DEB5A /* BreedsViewController.swift in Sources */,
+				2C0CCA5F2720A5EB00A1548D /* SelectedBreedsAssembly.swift in Sources */,
 				2C423F26271C8ACA002128CE /* InstanceProviderAssembly.swift in Sources */,
 				2C609A72271C93EE00C564B9 /* Breed.swift in Sources */,
+				2C0CCA4B27209C2200A1548D /* BreedDetailAssembly.swift in Sources */,
+				2C54DA26272097AF00A37A10 /* QuerySelectedBreedUseCase.swift in Sources */,
+				2C0CCA4827209C1200A1548D /* BreedDetatilViewController.swift in Sources */,
 				2CCD6BA5271C9C670049C1D5 /* BreedsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,6 +777,7 @@
 				2C17AC0E271DEF99006736EF /* BreedsLocalRepositoryTests.swift in Sources */,
 				2CDBA1FA271C915E00CDD1F2 /* DogsTests.swift in Sources */,
 				2C17AC15271DF6DF006736EF /* FetchBreedsUseCaseTests.swift in Sources */,
+				2C0CCA5D2720A40000A1548D /* SelectedBreedRepositoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

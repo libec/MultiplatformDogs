@@ -11,9 +11,13 @@ import Swinject
 public struct AppStart {
 
     private var appAssemblies: [Assembly] = [
+        AppAssembly(),
         APIAssembly(),
+        BreedDetailAssembly(),
         BreedsAssembly(),
         InstanceProviderAssembly(),
+        NavigationAssembly(),
+        SelectedBreedsAssembly(),
     ]
 
     public init() { }

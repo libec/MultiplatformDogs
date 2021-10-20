@@ -37,6 +37,10 @@ class BreedsViewModelTests: XCTestCase {
 
         XCTAssertTrue(fetchUseCase.fetchCalled)
     }
+
+    func test_selected_breed_is_passed_to_use_case() {
+        XCTFail()
+    }
 }
 
 class QueryBreedsUseCaseDummy: QueryBreedsUseCase {
