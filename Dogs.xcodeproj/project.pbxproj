@@ -20,6 +20,8 @@
 		2C0CCA6C2721539C00A1548D /* BreedDetailResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA6B2721539C00A1548D /* BreedDetailResource.swift */; };
 		2C0CCA6E2721561500A1548D /* QueryDogsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA6D2721561500A1548D /* QueryDogsUseCase.swift */; };
 		2C0CCA722721564700A1548D /* QueryDogsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA712721564700A1548D /* QueryDogsUseCaseTests.swift */; };
+		2C0CCA7427215C1800A1548D /* BreedDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA7327215C1800A1548D /* BreedDetailViewModel.swift */; };
+		2C0CCA7727215D1800A1548D /* BreedDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA7627215D1800A1548D /* BreedDetailViewModelTests.swift */; };
 		2C17AC0E271DEF99006736EF /* BreedsLocalRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */; };
 		2C17AC11271DF4EF006736EF /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC10271DF4EF006736EF /* TestError.swift */; };
 		2C17AC13271DF6CC006736EF /* FetchBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */; };
@@ -88,6 +90,8 @@
 		2C0CCA6B2721539C00A1548D /* BreedDetailResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailResource.swift; sourceTree = "<group>"; };
 		2C0CCA6D2721561500A1548D /* QueryDogsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryDogsUseCase.swift; sourceTree = "<group>"; };
 		2C0CCA712721564700A1548D /* QueryDogsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryDogsUseCaseTests.swift; sourceTree = "<group>"; };
+		2C0CCA7327215C1800A1548D /* BreedDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewModel.swift; sourceTree = "<group>"; };
+		2C0CCA7627215D1800A1548D /* BreedDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewModelTests.swift; sourceTree = "<group>"; };
 		2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsLocalRepositoryTests.swift; sourceTree = "<group>"; };
 		2C17AC10271DF4EF006736EF /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBreedsUseCase.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 		2C0CCA582720A01500A1548D /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				2C0CCA7327215C1800A1548D /* BreedDetailViewModel.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -296,6 +301,14 @@
 				2C0CCA712721564700A1548D /* QueryDogsUseCaseTests.swift */,
 			);
 			path = Domain;
+			sourceTree = "<group>";
+		};
+		2C0CCA7527215D0D00A1548D /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				2C0CCA7627215D1800A1548D /* BreedDetailViewModelTests.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		2C17AC0C271DEF8B006736EF /* Domain */ = {
@@ -502,6 +515,7 @@
 		2C609A6F271C930300C564B9 /* Breed Detail */ = {
 			isa = PBXGroup;
 			children = (
+				2C0CCA7527215D0D00A1548D /* Presentation */,
 				2C0CCA702721563D00A1548D /* Domain */,
 			);
 			path = "Breed Detail";
@@ -802,6 +816,7 @@
 				2C17AC13271DF6CC006736EF /* FetchBreedsUseCase.swift in Sources */,
 				2CAC2388271C7F1E004DEB5A /* BreedsViewController.swift in Sources */,
 				2C0CCA6C2721539C00A1548D /* BreedDetailResource.swift in Sources */,
+				2C0CCA7427215C1800A1548D /* BreedDetailViewModel.swift in Sources */,
 				2C0CCA5F2720A5EB00A1548D /* SelectedBreedsAssembly.swift in Sources */,
 				2C0CCA69272152D900A1548D /* BreedDetailRemoteResource.swift in Sources */,
 				2C423F26271C8ACA002128CE /* InstanceProviderAssembly.swift in Sources */,
@@ -838,6 +853,7 @@
 				2C0CCA722721564700A1548D /* QueryDogsUseCaseTests.swift in Sources */,
 				2C0CCA5D2720A40000A1548D /* SelectedBreedRepositoryTests.swift in Sources */,
 				2C0CCA612720A8A900A1548D /* SelectBreedUseCaseTests.swift in Sources */,
+				2C0CCA7727215D1800A1548D /* BreedDetailViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,7 +6,6 @@
 //
 
 import Combine
-import UIKit
 
 public struct DisplayableBreeds {
     public let name: String

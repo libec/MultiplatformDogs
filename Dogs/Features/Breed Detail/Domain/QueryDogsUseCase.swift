@@ -7,7 +7,7 @@
 
 import Combine
 
-protocol QueryDogsUseCase {
+public protocol QueryDogsUseCase {
     func query() -> AnyPublisher<[Dog], Never>
 }
 
