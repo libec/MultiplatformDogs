@@ -12,7 +12,6 @@ final class BreedsViewController: UIViewController {
 
     private var viewModel: BreedsViewModel!
 
-    private var selectedBreed = PassthroughSubject<Breed, Never>()
     private var subscriptions = Set<AnyCancellable>()
 
     private var displayedBreeds: BreedsViewModelOutput?

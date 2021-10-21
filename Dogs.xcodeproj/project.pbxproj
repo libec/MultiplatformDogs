@@ -22,6 +22,7 @@
 		2C0CCA722721564700A1548D /* QueryDogsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA712721564700A1548D /* QueryDogsUseCaseTests.swift */; };
 		2C0CCA7427215C1800A1548D /* BreedDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA7327215C1800A1548D /* BreedDetailViewModel.swift */; };
 		2C0CCA7727215D1800A1548D /* BreedDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA7627215D1800A1548D /* BreedDetailViewModelTests.swift */; };
+		2C0CCA792721639A00A1548D /* DogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA782721639A00A1548D /* DogCell.swift */; };
 		2C17AC0E271DEF99006736EF /* BreedsLocalRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */; };
 		2C17AC11271DF4EF006736EF /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC10271DF4EF006736EF /* TestError.swift */; };
 		2C17AC13271DF6CC006736EF /* FetchBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */; };
@@ -92,6 +93,7 @@
 		2C0CCA712721564700A1548D /* QueryDogsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryDogsUseCaseTests.swift; sourceTree = "<group>"; };
 		2C0CCA7327215C1800A1548D /* BreedDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewModel.swift; sourceTree = "<group>"; };
 		2C0CCA7627215D1800A1548D /* BreedDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewModelTests.swift; sourceTree = "<group>"; };
+		2C0CCA782721639A00A1548D /* DogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCell.swift; sourceTree = "<group>"; };
 		2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsLocalRepositoryTests.swift; sourceTree = "<group>"; };
 		2C17AC10271DF4EF006736EF /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBreedsUseCase.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				2C0CCA4727209C1200A1548D /* BreedDetailViewController.swift */,
+				2C0CCA782721639A00A1548D /* DogCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -796,6 +799,7 @@
 			files = (
 				2C423F24271C8AB5002128CE /* SwinjectInstanceProvider.swift in Sources */,
 				2C423F1B271C88B0002128CE /* InstanceProvider.swift in Sources */,
+				2C0CCA792721639A00A1548D /* DogCell.swift in Sources */,
 				2C609A74271C946A00C564B9 /* Dog.swift in Sources */,
 				2C0CCA4E27209C8200A1548D /* AppAssembly.swift in Sources */,
 				2C17AC1A271DF832006736EF /* QueryBreedsUseCase.swift in Sources */,
