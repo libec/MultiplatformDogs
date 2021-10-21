@@ -11,5 +11,6 @@ import SwinjectAutoregistration
 final class BreedDetailAssembly: Assembly {
     func assemble(container: Container) {
         container.autoregister(BreedsDetailViewController.self, initializer: BreedsDetailViewController.make)
+        container.autoregister(BreedDetailResource.self, initializer: BreedDetailRemoteResource.init)
     }
 }

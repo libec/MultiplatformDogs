@@ -28,4 +28,3 @@ public struct AppStart {
         return assembler.resolver.resolve(Instance.self)!
     }
 }
-

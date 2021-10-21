@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C0CCA4827209C1200A1548D /* BreedDetatilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA4727209C1200A1548D /* BreedDetatilViewController.swift */; };
+		2C0CCA4827209C1200A1548D /* BreedDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA4727209C1200A1548D /* BreedDetailViewController.swift */; };
 		2C0CCA4B27209C2200A1548D /* BreedDetailAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA4A27209C2200A1548D /* BreedDetailAssembly.swift */; };
 		2C0CCA4E27209C8200A1548D /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA4D27209C8200A1548D /* AppAssembly.swift */; };
 		2C0CCA5527209DBB00A1548D /* NavigationAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA5427209DBB00A1548D /* NavigationAssembly.swift */; };
@@ -16,6 +16,8 @@
 		2C0CCA612720A8A900A1548D /* SelectBreedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA602720A8A900A1548D /* SelectBreedUseCaseTests.swift */; };
 		2C0CCA642720A90000A1548D /* SelectedBreedRepositoryMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA632720A90000A1548D /* SelectedBreedRepositoryMocks.swift */; };
 		2C0CCA662720A9F000A1548D /* QuerySelectedBreedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA652720A9F000A1548D /* QuerySelectedBreedUseCaseTests.swift */; };
+		2C0CCA69272152D900A1548D /* BreedDetailRemoteResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA68272152D900A1548D /* BreedDetailRemoteResource.swift */; };
+		2C0CCA6C2721539C00A1548D /* BreedDetailResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA6B2721539C00A1548D /* BreedDetailResource.swift */; };
 		2C17AC0E271DEF99006736EF /* BreedsLocalRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */; };
 		2C17AC11271DF4EF006736EF /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC10271DF4EF006736EF /* TestError.swift */; };
 		2C17AC13271DF6CC006736EF /* FetchBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */; };
@@ -71,7 +73,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2C0CCA4727209C1200A1548D /* BreedDetatilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetatilViewController.swift; sourceTree = "<group>"; };
+		2C0CCA4727209C1200A1548D /* BreedDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewController.swift; sourceTree = "<group>"; };
 		2C0CCA4A27209C2200A1548D /* BreedDetailAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailAssembly.swift; sourceTree = "<group>"; };
 		2C0CCA4D27209C8200A1548D /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		2C0CCA5427209DBB00A1548D /* NavigationAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAssembly.swift; sourceTree = "<group>"; };
@@ -80,6 +82,8 @@
 		2C0CCA602720A8A900A1548D /* SelectBreedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBreedUseCaseTests.swift; sourceTree = "<group>"; };
 		2C0CCA632720A90000A1548D /* SelectedBreedRepositoryMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedBreedRepositoryMocks.swift; sourceTree = "<group>"; };
 		2C0CCA652720A9F000A1548D /* QuerySelectedBreedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySelectedBreedUseCaseTests.swift; sourceTree = "<group>"; };
+		2C0CCA68272152D900A1548D /* BreedDetailRemoteResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailRemoteResource.swift; sourceTree = "<group>"; };
+		2C0CCA6B2721539C00A1548D /* BreedDetailResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailResource.swift; sourceTree = "<group>"; };
 		2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsLocalRepositoryTests.swift; sourceTree = "<group>"; };
 		2C17AC10271DF4EF006736EF /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBreedsUseCase.swift; sourceTree = "<group>"; };
@@ -149,7 +153,7 @@
 		2C0CCA4627209C0800A1548D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				2C0CCA4727209C1200A1548D /* BreedDetatilViewController.swift */,
+				2C0CCA4727209C1200A1548D /* BreedDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -263,6 +267,22 @@
 				2C0CCA632720A90000A1548D /* SelectedBreedRepositoryMocks.swift */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		2C0CCA67272152C800A1548D /* Data Access */ = {
+			isa = PBXGroup;
+			children = (
+				2C0CCA68272152D900A1548D /* BreedDetailRemoteResource.swift */,
+			);
+			path = "Data Access";
+			sourceTree = "<group>";
+		};
+		2C0CCA6A2721538700A1548D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				2C0CCA6B2721539C00A1548D /* BreedDetailResource.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		2C17AC0C271DEF8B006736EF /* Domain */ = {
@@ -457,6 +477,8 @@
 		2C609A6E271C92FC00C564B9 /* Breed Detail */ = {
 			isa = PBXGroup;
 			children = (
+				2C0CCA6A2721538700A1548D /* Domain */,
+				2C0CCA67272152C800A1548D /* Data Access */,
 				2C0CCA582720A01500A1548D /* Presentation */,
 				2C0CCA4927209C1600A1548D /* Injection */,
 				2C0CCA4627209C0800A1548D /* View */,
@@ -765,12 +787,14 @@
 				2C54DA2A2720994500A37A10 /* UIKitCoordinator.swift in Sources */,
 				2C17AC13271DF6CC006736EF /* FetchBreedsUseCase.swift in Sources */,
 				2CAC2388271C7F1E004DEB5A /* BreedsViewController.swift in Sources */,
+				2C0CCA6C2721539C00A1548D /* BreedDetailResource.swift in Sources */,
 				2C0CCA5F2720A5EB00A1548D /* SelectedBreedsAssembly.swift in Sources */,
+				2C0CCA69272152D900A1548D /* BreedDetailRemoteResource.swift in Sources */,
 				2C423F26271C8ACA002128CE /* InstanceProviderAssembly.swift in Sources */,
 				2C609A72271C93EE00C564B9 /* Breed.swift in Sources */,
 				2C0CCA4B27209C2200A1548D /* BreedDetailAssembly.swift in Sources */,
 				2C54DA26272097AF00A37A10 /* QuerySelectedBreedUseCase.swift in Sources */,
-				2C0CCA4827209C1200A1548D /* BreedDetatilViewController.swift in Sources */,
+				2C0CCA4827209C1200A1548D /* BreedDetailViewController.swift in Sources */,
 				2CCD6BA5271C9C670049C1D5 /* BreedsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

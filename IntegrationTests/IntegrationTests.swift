@@ -13,7 +13,7 @@ class BreedRemoteResourceTests: XCTestCase {
 
     var subscriptions = Set<AnyCancellable>()
 
-    func test_fetched_remote_resource() {
+    func test_fetches_breeds_form_remote_resource() {
         let apiConfiguration = ProductionAPIConfiguration()
         let sut = BreedsRemoteResource(apiConfiguration: apiConfiguration)
 
@@ -30,6 +30,29 @@ class BreedRemoteResourceTests: XCTestCase {
             } receiveValue: { breeds in
                 log("\(breeds)")
                 XCTAssertFalse(breeds.isEmpty)
+            }
+            .store(in: &subscriptions)
+
+        wait(for: [expectation], timeout: 3)
+    }
+
+    func test_fetches_breed_detail_from_remote_resource() {
+        let apiConfiguration = ProductionAPIConfiguration()
+        let sut = BreedDetailRemoteResource(apiConfiguration: apiConfiguration)
+
+        let expectation = XCTestExpectation()
+
+        sut.query(breed: Breed(name: "hound"))
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    XCTFail("Error \(error.localizedDescription) not expected")
+                case .finished:
+                    expectation.fulfill()
+                }
+            } receiveValue: { dogs in
+                log("\(dogs)")
+                XCTAssertFalse(dogs.isEmpty)
             }
             .store(in: &subscriptions)
 
