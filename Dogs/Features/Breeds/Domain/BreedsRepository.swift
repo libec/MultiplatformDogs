@@ -28,7 +28,7 @@ public final class BreedsLocalRepository: BreedsRepository {
         breedsResource.fetch()
             .replaceError(with: [])
             .sink { [weak self] breed in
-                // TODO: - This would deserve better binding to subject than sink
+                // NOTE: - This would deserve better binding to subject than sink
                 // something like resource.fetch().bind(to: subject)
                 guard let unwrappedSelf = self else { return }
                 unwrappedSelf.subject.send(breed)

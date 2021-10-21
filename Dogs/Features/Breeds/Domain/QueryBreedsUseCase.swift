@@ -19,7 +19,7 @@ public final class QueryBreedsUseCaseImpl: QueryBreedsUseCase {
         self.repository = repository
     }
 
-    // This is a function on purpose, it's simple in this case but often times
+    // NOTE: This is a function on purpose (not computed property), it's simple in this case but often times
     // it makes sense to use some kind of input to filter repository data.
     // This is the Query part of CQRS principle used on domain
     public func query() -> AnyPublisher<[Breed], Never> {

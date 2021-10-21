@@ -532,12 +532,12 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		2C609A75271C94A200C564B9 /* Dog Domain */ = {
+		2C609A75271C94A200C564B9 /* Dogs */ = {
 			isa = PBXGroup;
 			children = (
 				2C54DA222720978600A37A10 /* Entity */,
 			);
-			path = "Dog Domain";
+			path = Dogs;
 			sourceTree = "<group>";
 		};
 		2CAC2381271C7E35004DEB5A /* Assets */ = {
@@ -583,7 +583,7 @@
 			isa = PBXGroup;
 			children = (
 				2C423F32271C8E6F002128CE /* API */,
-				2C609A75271C94A200C564B9 /* Dog Domain */,
+				2C609A75271C94A200C564B9 /* Dogs */,
 				2C0CCA4F27209D8400A1548D /* Scene Navigation */,
 				2C0CCA5627209FEF00A1548D /* Selected Breeds */,
 			);
@@ -1101,8 +1101,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1111,7 +1113,10 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = huspenina.libor.DogsTests;
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1123,8 +1128,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1134,6 +1141,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = huspenina.libor.DogsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
