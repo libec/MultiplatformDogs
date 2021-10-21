@@ -18,6 +18,8 @@
 		2C0CCA662720A9F000A1548D /* QuerySelectedBreedUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA652720A9F000A1548D /* QuerySelectedBreedUseCaseTests.swift */; };
 		2C0CCA69272152D900A1548D /* BreedDetailRemoteResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA68272152D900A1548D /* BreedDetailRemoteResource.swift */; };
 		2C0CCA6C2721539C00A1548D /* BreedDetailResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA6B2721539C00A1548D /* BreedDetailResource.swift */; };
+		2C0CCA6E2721561500A1548D /* QueryDogsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA6D2721561500A1548D /* QueryDogsUseCase.swift */; };
+		2C0CCA722721564700A1548D /* QueryDogsUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0CCA712721564700A1548D /* QueryDogsUseCaseTests.swift */; };
 		2C17AC0E271DEF99006736EF /* BreedsLocalRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */; };
 		2C17AC11271DF4EF006736EF /* TestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC10271DF4EF006736EF /* TestError.swift */; };
 		2C17AC13271DF6CC006736EF /* FetchBreedsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */; };
@@ -84,6 +86,8 @@
 		2C0CCA652720A9F000A1548D /* QuerySelectedBreedUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuerySelectedBreedUseCaseTests.swift; sourceTree = "<group>"; };
 		2C0CCA68272152D900A1548D /* BreedDetailRemoteResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailRemoteResource.swift; sourceTree = "<group>"; };
 		2C0CCA6B2721539C00A1548D /* BreedDetailResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailResource.swift; sourceTree = "<group>"; };
+		2C0CCA6D2721561500A1548D /* QueryDogsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryDogsUseCase.swift; sourceTree = "<group>"; };
+		2C0CCA712721564700A1548D /* QueryDogsUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryDogsUseCaseTests.swift; sourceTree = "<group>"; };
 		2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsLocalRepositoryTests.swift; sourceTree = "<group>"; };
 		2C17AC10271DF4EF006736EF /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBreedsUseCase.swift; sourceTree = "<group>"; };
@@ -281,6 +285,15 @@
 			isa = PBXGroup;
 			children = (
 				2C0CCA6B2721539C00A1548D /* BreedDetailResource.swift */,
+				2C0CCA6D2721561500A1548D /* QueryDogsUseCase.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		2C0CCA702721563D00A1548D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				2C0CCA712721564700A1548D /* QueryDogsUseCaseTests.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -489,6 +502,7 @@
 		2C609A6F271C930300C564B9 /* Breed Detail */ = {
 			isa = PBXGroup;
 			children = (
+				2C0CCA702721563D00A1548D /* Domain */,
 			);
 			path = "Breed Detail";
 			sourceTree = "<group>";
@@ -792,6 +806,7 @@
 				2C0CCA69272152D900A1548D /* BreedDetailRemoteResource.swift in Sources */,
 				2C423F26271C8ACA002128CE /* InstanceProviderAssembly.swift in Sources */,
 				2C609A72271C93EE00C564B9 /* Breed.swift in Sources */,
+				2C0CCA6E2721561500A1548D /* QueryDogsUseCase.swift in Sources */,
 				2C0CCA4B27209C2200A1548D /* BreedDetailAssembly.swift in Sources */,
 				2C54DA26272097AF00A37A10 /* QuerySelectedBreedUseCase.swift in Sources */,
 				2C0CCA4827209C1200A1548D /* BreedDetailViewController.swift in Sources */,
@@ -820,6 +835,7 @@
 				2C0CCA642720A90000A1548D /* SelectedBreedRepositoryMocks.swift in Sources */,
 				2CDBA1FA271C915E00CDD1F2 /* DogsTests.swift in Sources */,
 				2C17AC15271DF6DF006736EF /* FetchBreedsUseCaseTests.swift in Sources */,
+				2C0CCA722721564700A1548D /* QueryDogsUseCaseTests.swift in Sources */,
 				2C0CCA5D2720A40000A1548D /* SelectedBreedRepositoryTests.swift in Sources */,
 				2C0CCA612720A8A900A1548D /* SelectBreedUseCaseTests.swift in Sources */,
 			);
