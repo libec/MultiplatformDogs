@@ -94,6 +94,7 @@
 		2C0CCA7327215C1800A1548D /* BreedDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewModel.swift; sourceTree = "<group>"; };
 		2C0CCA7627215D1800A1548D /* BreedDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedDetailViewModelTests.swift; sourceTree = "<group>"; };
 		2C0CCA782721639A00A1548D /* DogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogCell.swift; sourceTree = "<group>"; };
+		2C0CCA7A27216F4800A1548D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2C17AC0D271DEF99006736EF /* BreedsLocalRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsLocalRepositoryTests.swift; sourceTree = "<group>"; };
 		2C17AC10271DF4EF006736EF /* TestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestError.swift; sourceTree = "<group>"; };
 		2C17AC12271DF6CC006736EF /* FetchBreedsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchBreedsUseCase.swift; sourceTree = "<group>"; };
@@ -613,6 +614,7 @@
 		2CB30FC2271C7DC500E8E196 = {
 			isa = PBXGroup;
 			children = (
+				2C0CCA7A27216F4800A1548D /* README.md */,
 				2CB30FCD271C7DC500E8E196 /* Dogs */,
 				2CDBA1F8271C915E00CDD1F2 /* DogsTests */,
 				2CCD6B9C271C961E0049C1D5 /* IntegrationTests */,
