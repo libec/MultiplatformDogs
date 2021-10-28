@@ -11,9 +11,9 @@ import Dogs
 
 class BreedsViewModelTests: XCTestCase {
 
-    func test_when_query_updates_then_view_updates_with_formatted_names() {
+    func test_when_query_updates_then_view_updates_with_formatted_and_sorted_names() {
         var subscriptions = Set<AnyCancellable>()
-        let useCaseBreeds = [Breed(name: "dalmatian"), Breed(name: "cocker spaniel")]
+        let useCaseBreeds = [Breed(name: "viszla"), Breed(name: "dalmatian"), Breed(name: "cocker spaniel")]
         let queryBreedsUseCase = QueryBreedsUseCaseStub(breeds: useCaseBreeds)
         let sut = BreedsViewModelImpl(
             fetchUseCase: FetchUseCaseDummy(),
@@ -24,7 +24,7 @@ class BreedsViewModelTests: XCTestCase {
         let expectation = XCTestExpectation()
         sut.output
             .sink { output in
-                XCTAssertEqual(["Dalmatian", "Cocker Spaniel"], output.displayableBreeds.map(\.name))
+                XCTAssertEqual(["Cocker Spaniel", "Dalmatian", "Viszla"], output.displayableBreeds.map(\.name))
                 expectation.fulfill()
             }
             .store(in: &subscriptions)

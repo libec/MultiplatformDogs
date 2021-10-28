@@ -46,7 +46,11 @@ public final class BreedsViewModelImpl: BreedsViewModel {
             .query()
             .map { breeds in
                 BreedsViewModelOutput(
-                    displayableBreeds: breeds.map { breed in
+                    displayableBreeds: breeds
+                        .sorted(by: { lhs, rhs in
+                            lhs.name < rhs.name
+                        })
+                        .map { breed in
                         DisplayableBreeds(name: breed.name.capitalized) { [weak self] () -> Void in
                             guard let unwrappedSelf = self else { return }
                             unwrappedSelf.selectBreedUseCase.select(breed: breed)
