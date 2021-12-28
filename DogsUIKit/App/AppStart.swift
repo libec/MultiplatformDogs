@@ -1,24 +1,12 @@
-//
-//  AppStart.swift
-//  Dogs
-//
-//  Created by Libor Huspenina on 17.10.2021.
-//
-
 import Foundation
 import Swinject
+import Dogs
 
 public struct AppStart {
 
     private var appAssemblies: [Assembly] = [
-        AppAssembly(),
-        APIAssembly(),
-        BreedDetailAssembly(),
-        BreedsAssembly(),
-        InstanceProviderAssembly(),
-        NavigationAssembly(),
-        SelectedBreedsAssembly(),
-    ]
+        UIKitAppAssembly()
+    ] + DogsAssembly().assemblies
 
     public init() { }
 

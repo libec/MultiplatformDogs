@@ -7,6 +7,7 @@
 
 import UIKit
 import Combine
+import Dogs
 
 final class BreedsViewController: UIViewController {
 

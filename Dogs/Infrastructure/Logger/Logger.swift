@@ -7,7 +7,6 @@
 
 import Foundation
 
-// NOTE: - Proper logging is ommited for now
 public func log(_ message: String) {
     print(message)
 }

@@ -37,5 +37,6 @@ fileprivate struct BreedDetailResourceDto: Codable {
 
     fileprivate enum CodingKeys: String, CodingKey {
         case breeds = "message"
+
     }
 }

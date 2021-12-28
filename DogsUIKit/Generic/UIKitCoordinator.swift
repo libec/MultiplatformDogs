@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Dogs
 import Combine
 
 final class UIKitCoordinator: Coordinator {

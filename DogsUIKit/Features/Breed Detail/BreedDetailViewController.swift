@@ -1,13 +1,7 @@
-//
-//  BreedDetatilViewController.swift
-//  Dogs
-//
-//  Created by Libor Huspenina on 20.10.2021.
-//
-
 import Foundation
 import UIKit
 import Combine
+import Dogs
 
 final class BreedsDetailViewController: UIViewController {
 
