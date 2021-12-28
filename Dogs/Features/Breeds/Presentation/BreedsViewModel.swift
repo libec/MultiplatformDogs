@@ -27,10 +27,21 @@ public final class BreedsViewModelImpl: BreedsViewModel {
     private let queryUseCase: QueryBreedsUseCase
     private let selectBreedUseCase: SelectBreedUseCase
 
-    @Published private var outputProperty: BreedsViewModelOutput = .init(displayableBreeds: [])
-
     public var output: AnyPublisher<BreedsViewModelOutput, Never> {
-        $outputProperty.eraseToAnyPublisher()
+        queryUseCase.query().map { breeds in
+            BreedsViewModelOutput(
+                displayableBreeds: breeds
+                    .sorted(by: { lhs, rhs in
+                        lhs.name < rhs.name
+                    })
+                    .map { breed in
+                    DisplayableBreeds(name: breed.name.capitalized) { [weak self] () -> Void in
+                        guard let unwrappedSelf = self else { return }
+                        unwrappedSelf.selectBreedUseCase.select(breed: breed)
+                    }
+                }
+            )
+        }.eraseToAnyPublisher()
     }
 
     public init(
@@ -41,24 +52,6 @@ public final class BreedsViewModelImpl: BreedsViewModel {
         self.fetchUseCase = fetchUseCase
         self.queryUseCase = queryUseCase
         self.selectBreedUseCase = selectBreedUseCase
-
-        queryUseCase
-            .query()
-            .map { breeds in
-                BreedsViewModelOutput(
-                    displayableBreeds: breeds
-                        .sorted(by: { lhs, rhs in
-                            lhs.name < rhs.name
-                        })
-                        .map { breed in
-                        DisplayableBreeds(name: breed.name.capitalized) { [weak self] () -> Void in
-                            guard let unwrappedSelf = self else { return }
-                            unwrappedSelf.selectBreedUseCase.select(breed: breed)
-                        }
-                    }
-                )
-            }
-            .assign(to: &$outputProperty)
     }
 
     public func fetch() {

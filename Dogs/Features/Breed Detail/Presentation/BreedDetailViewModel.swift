@@ -23,21 +23,17 @@ public final class BreedDetailViewModelImpl: BreedDetailViewModel {
 
     private let queryDogsUseCase: QueryDogsUseCase
 
-    @Published private var outputProperty: [DisplayableDog] = []
-
     public var output: AnyPublisher<[DisplayableDog], Never> {
-        $outputProperty.eraseToAnyPublisher()
-    }
-
-    public init(queryDogsUseCase: QueryDogsUseCase) {
-        self.queryDogsUseCase = queryDogsUseCase
-
         queryDogsUseCase.query()
             .map { dogs in
                 dogs.map { dog in
                     DisplayableDog(imageUrl: dog.imageUrl)
                 }
             }
-            .assign(to: &$outputProperty)
+            .eraseToAnyPublisher()
+    }
+
+    public init(queryDogsUseCase: QueryDogsUseCase) {
+        self.queryDogsUseCase = queryDogsUseCase
     }
 }
