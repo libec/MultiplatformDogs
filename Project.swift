@@ -47,7 +47,7 @@ let uikitApp = Target(
     product: .app,
     productName: "UIKitApp",
     bundleId: "com.example.dogs.uikit",
-    infoPlist: .extendingDefault(with: ["UILaunchStoryboardName": "LaunchScreen"]),
+    infoPlist: .extendingDefault(with: ["UILaunchScreen": [:]]),
     sources: "UIKitApp/**",
     resources: "UIKitApp/App/Assets/**",
     dependencies: [
@@ -57,13 +57,28 @@ let uikitApp = Target(
     ]
 )
 
+let swiftUIApp = Target(
+    name: "SwiftUIApp",
+    platform: .iOS,
+    product: .app,
+    productName: "SwiftUIApp",
+    bundleId: "com.example.dogs.swiftui",
+    infoPlist: .extendingDefault(with: ["UILaunchScreen": [:]]),
+    sources: "SwiftUIApp/**",
+    resources: "SwiftUIApp/Assets/**",
+    dependencies: [
+        .target(name: "Dogs"),
+        .package(product: "Swinject"),
+        .package(product: "SwinjectAutoregistration"),
+    ]
+)
+
 let project = Project(
     name: "DogsApp",
-    organizationName: "Cleverlance",
-    options: [],
+    organizationName: "Example",
     packages: packages,
     settings: nil,
-    targets: [dogsTarget, dogsTests, integrationTests, uikitApp],
+    targets: [dogsTarget, dogsTests, integrationTests, uikitApp, swiftUIApp],
     schemes: [
         Scheme(
             name: "Dogs",
@@ -91,6 +106,22 @@ let project = Project(
             runAction: RunAction.runAction(
                 configuration: .debug,
                 executable: TargetReference(stringLiteral: "UIKitApp")
+            )
+        ),
+        Scheme(
+            name: "SwiftUIApp",
+            shared: true,
+            buildAction: BuildAction(targets: [
+                TargetReference(stringLiteral: "Dogs"),
+                TargetReference(stringLiteral: "SwiftUIApp")
+            ]),
+            testAction: TestAction.targets([
+                TestableTarget(stringLiteral: "DogsTests"),
+                TestableTarget(stringLiteral: "IntegrationTests")
+            ]),
+            runAction: RunAction.runAction(
+                configuration: .debug,
+                executable: TargetReference(stringLiteral: "SwiftUIApp")
             )
         )
     ]
