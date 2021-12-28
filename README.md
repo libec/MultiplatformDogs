@@ -31,6 +31,7 @@ This is to further enforce boundaries, for instance feature should not be import
 
 ## How to install
 * Uses [tuist](https://docs.tuist.io/tutorial/get-started) to generate project
+* Run `tuist generate` and open generated workspace
 * Open Xcode and run, all 3rd party libraries are installed using Swift package manager
 * Developed using Xcode 13.2.1
 
