@@ -10,7 +10,7 @@ let dogsTarget = Target(
     platform: .iOS,
     product: .framework,
     productName: "Dogs",
-    bundleId: "com.cleverlance.dogs",
+    bundleId: "com.example.dogs",
     infoPlist: .default,
     sources: "Dogs/**",
     dependencies: [
@@ -24,7 +24,7 @@ let dogsTests = Target(
     platform: .iOS,
     product: .unitTests,
     productName: "DogsTests",
-    bundleId: "com.cleverlance.dogs.tests",
+    bundleId: "com.example.dogs.tests",
     infoPlist: .default,
     sources: "DogsTests/**",
     dependencies: [.target(name: "Dogs")]
@@ -35,21 +35,21 @@ let integrationTests = Target(
     platform: .iOS,
     product: .unitTests,
     productName: "IntegrationTests",
-    bundleId: "com.cleverlance.dogs.integrationTests",
+    bundleId: "com.example.dogs.integrationTests",
     infoPlist: .default,
     sources: "IntegrationTests/**",
     dependencies: [.target(name: "Dogs")]
 )
 
-let dogsUIKit = Target(
-    name: "DogsUIKit",
+let uikitApp = Target(
+    name: "UIKitApp",
     platform: .iOS,
     product: .app,
-    productName: "DogsUIKit",
-    bundleId: "com.cleverlance.dogs.uikit",
+    productName: "UIKitApp",
+    bundleId: "com.example.dogs.uikit",
     infoPlist: .extendingDefault(with: ["UILaunchStoryboardName": "LaunchScreen"]),
-    sources: "DogsUIKit/**",
-    resources: "DogsUIKit/App/Assets/**",
+    sources: "UIKitApp/**",
+    resources: "UIKitApp/App/Assets/**",
     dependencies: [
         .target(name: "Dogs"),
         .package(product: "Swinject"),
@@ -63,7 +63,7 @@ let project = Project(
     options: [],
     packages: packages,
     settings: nil,
-    targets: [dogsTarget, dogsTests, integrationTests, dogsUIKit],
+    targets: [dogsTarget, dogsTests, integrationTests, uikitApp],
     schemes: [
         Scheme(
             name: "Dogs",
@@ -78,11 +78,11 @@ let project = Project(
             testAction: TestAction.targets([TestableTarget(stringLiteral: "IntegrationTests")])
         ),
         Scheme(
-            name: "DogsUIKit",
+            name: "UIKitApp",
             shared: true,
             buildAction: BuildAction(targets: [
                 TargetReference(stringLiteral: "Dogs"),
-                TargetReference(stringLiteral: "DogsUIKit")
+                TargetReference(stringLiteral: "UIKitApp")
             ]),
             testAction: TestAction.targets([
                 TestableTarget(stringLiteral: "DogsTests"),
@@ -90,7 +90,7 @@ let project = Project(
             ]),
             runAction: RunAction.runAction(
                 configuration: .debug,
-                executable: TargetReference(stringLiteral: "DogsUIKit")
+                executable: TargetReference(stringLiteral: "UIKitApp")
             )
         )
     ]
