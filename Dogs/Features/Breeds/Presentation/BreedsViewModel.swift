@@ -10,10 +10,20 @@ import Combine
 public struct DisplayableBreeds {
     public let name: String
     public let selection: (() -> Void)
+
+    public init(name: String, selection: @escaping (() -> Void)) {
+        self.name = name
+        self.selection = selection
+    }
 }
 
 public struct BreedsViewModelOutput {
+
     public let displayableBreeds: [DisplayableBreeds]
+
+    public init(displayableBreeds: [DisplayableBreeds]) {
+        self.displayableBreeds = displayableBreeds
+    }
 }
 
 public protocol BreedsViewModel {

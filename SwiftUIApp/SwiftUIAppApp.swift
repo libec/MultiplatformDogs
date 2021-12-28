@@ -7,12 +7,17 @@
 //
 
 import SwiftUI
+import Dogs
 
 @main
 struct SwiftUIAppApp: App {
+
+    let appStart = AppStart()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            let viewModel: BreedsViewModel = appStart.startApp()
+            ContentView(breedViewModel: viewModel)
         }
     }
 }
