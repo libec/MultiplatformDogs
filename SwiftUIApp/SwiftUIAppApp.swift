@@ -16,8 +16,8 @@ struct SwiftUIAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            let viewModel: BreedsViewModel = appStart.startApp()
-            ContentView(breedViewModel: viewModel)
+            let view: BreedsView = appStart.startApp()
+            view
         }
     }
 }

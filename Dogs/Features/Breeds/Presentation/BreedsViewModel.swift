@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 public struct DisplayableBreeds {
     public let name: String
@@ -51,7 +52,9 @@ public final class BreedsViewModelImpl: BreedsViewModel {
                     }
                 }
             )
-        }.eraseToAnyPublisher()
+        }
+        .receive(on: DispatchQueue.main, options: .none)
+        .eraseToAnyPublisher()
     }
 
     public init(

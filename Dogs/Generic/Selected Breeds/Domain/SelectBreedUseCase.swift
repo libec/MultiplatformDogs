@@ -21,4 +21,3 @@ public final class SelectBreedUseCaseImpl: SelectBreedUseCase {
         selectedBreedRepository.select(breed: breed)
     }
 }
-

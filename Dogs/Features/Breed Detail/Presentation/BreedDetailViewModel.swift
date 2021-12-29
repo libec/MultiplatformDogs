@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 public struct DisplayableDog: Equatable {
     public let imageUrl: String
@@ -30,6 +31,7 @@ public final class BreedDetailViewModelImpl: BreedDetailViewModel {
                     DisplayableDog(imageUrl: dog.imageUrl)
                 }
             }
+            .receive(on: DispatchQueue.main, options: .none)
             .eraseToAnyPublisher()
     }
 
