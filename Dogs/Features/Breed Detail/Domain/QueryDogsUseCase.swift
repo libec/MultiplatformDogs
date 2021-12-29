@@ -11,7 +11,7 @@ public protocol QueryDogsUseCase {
     func query() -> AnyPublisher<[Dog], Never>
 }
 
-public final class QueryDogsUseCaseImpl: QueryDogsUseCase {
+public struct QueryDogsUseCaseImpl: QueryDogsUseCase {
 
     private let selectedBreedUseCase: QuerySelectedBreedUseCase
 
@@ -26,10 +26,9 @@ public final class QueryDogsUseCaseImpl: QueryDogsUseCase {
 
     public func query() -> AnyPublisher<[Dog], Never> {
         selectedBreedUseCase.selectedBreed()
-            .flatMap { [weak self] breed -> AnyPublisher<[Dog], Never> in
-                guard let unwrappedSelf = self else { return [].publisher.eraseToAnyPublisher() }
+            .flatMap { breed -> AnyPublisher<[Dog], Never> in
                 if let breed = breed {
-                    return unwrappedSelf.breedDetailResource
+                    return breedDetailResource
                         .query(breed: breed)
                         .replaceError(with: [])
                         .eraseToAnyPublisher()

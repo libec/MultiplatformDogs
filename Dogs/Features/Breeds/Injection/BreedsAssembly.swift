@@ -13,7 +13,6 @@ final class BreedsAssembly: Assembly {
         container.autoregister(BreedsResource.self, initializer: BreedsRemoteResource.init)
         container.autoregister(BreedsRepository.self, initializer: BreedsLocalRepository.init)
             .inObjectScope(.container)
-        container.autoregister(FetchBreedsUseCase.self, initializer: FetchBreedsUseCaseImpl.init)
         container.autoregister(QueryBreedsUseCase.self, initializer: QueryBreedsUseCaseImpl.init)
         container.autoregister(BreedsViewModel.self, initializer: BreedsViewModelImpl.init)
     }

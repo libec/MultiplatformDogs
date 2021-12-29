@@ -10,12 +10,40 @@ import SwiftUI
 
 struct BreedsDetailView: View {
     var body: some View {
-        Text("Hello, World!")
+        let dogs: [String] = Array(0...1500).map { _ in
+            "\(Double.random(in: 0...100_000))"
+        }
+        DogsCollectionView(dogs: dogs)
     }
 }
 
-struct BreedsDetailView_Previews: PreviewProvider {
+struct DogsCollectionView: View {
+
+    var dogs: [String]
+
+    var gridItems: [GridItem] {
+        [GridItem(.flexible()), GridItem(.flexible())]
+    }
+
+    var body: some View {
+        GeometryReader { reader in
+            ScrollView {
+                LazyVGrid(columns: gridItems, alignment: .center, spacing: 16) {
+                    ForEach(dogs, id: \.self) { _ in
+                        Color(red: Double.random(in: 0...1), green: Double.random(in: 0...1), blue: Double.random(in: 0...1))
+                            .frame(width: reader.size.width / 2 - 16, height: reader.size.width / 2 - 16)
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct DogsCollectionView_Previews: PreviewProvider {
     static var previews: some View {
-        BreedsDetailView()
+        let dogs: [String] = Array(0...15).map { _ in
+            "\(Double.random(in: 0...100_000))"
+        }
+        DogsCollectionView(dogs: dogs)
     }
 }

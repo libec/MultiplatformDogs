@@ -31,7 +31,6 @@ public final class BreedDetailViewModelImpl: BreedDetailViewModel {
                     DisplayableDog(imageUrl: dog.imageUrl)
                 }
             }
-            .receive(on: DispatchQueue.main, options: .none)
             .eraseToAnyPublisher()
     }
 

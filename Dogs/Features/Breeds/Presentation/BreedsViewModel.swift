@@ -29,12 +29,10 @@ public struct BreedsViewModelOutput {
 
 public protocol BreedsViewModel {
     var output: AnyPublisher<BreedsViewModelOutput, Never> { get }
-    func fetch()
 }
 
 public final class BreedsViewModelImpl: BreedsViewModel {
 
-    private let fetchUseCase: FetchBreedsUseCase
     private let queryUseCase: QueryBreedsUseCase
     private let selectBreedUseCase: SelectBreedUseCase
 
@@ -53,21 +51,14 @@ public final class BreedsViewModelImpl: BreedsViewModel {
                 }
             )
         }
-        .receive(on: DispatchQueue.main, options: .none)
         .eraseToAnyPublisher()
     }
 
     public init(
-        fetchUseCase: FetchBreedsUseCase,
         queryUseCase: QueryBreedsUseCase,
         selectBreedUseCase: SelectBreedUseCase
     ) {
-        self.fetchUseCase = fetchUseCase
         self.queryUseCase = queryUseCase
         self.selectBreedUseCase = selectBreedUseCase
-    }
-
-    public func fetch() {
-        fetchUseCase.fetch()
     }
 }

@@ -30,7 +30,6 @@ final class BreedsViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         bindToViewModel()
-        viewModel.fetch()
     }
 
     private func bindToViewModel() {

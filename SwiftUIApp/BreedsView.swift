@@ -39,8 +39,5 @@ struct BreedsView: View {
             .navigationTitle("Dogs")
             .modifier(navigation)
         }
-        .onAppear {
-            breedViewModel.fetch()
-        }
     }
 }
