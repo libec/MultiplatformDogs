@@ -29,6 +29,26 @@ class BreedsLocalRepositoryTests: XCTestCase {
         wait(for: [expectation], timeout: .leastNonzeroMagnitude)
     }
 
+    func test_result_from_fetch_are_stored() {
+        var subscriptions = Set<AnyCancellable>()
+        let breedsResource = BreedsResourceStub()
+        let sut = BreedsLocalRepository(breedsResource: breedsResource)
+        let resourceBreeds = ["akita", "boxer", "chow"].map {Breed(name: $0) }
+
+        let expectation = XCTestExpectation()
+
+        sut.query.sink { breeds in
+            XCTAssertEqual(breeds, resourceBreeds)
+            expectation.fulfill()
+        }
+        .store(in: &subscriptions)
+        breedsResource.subject.send(resourceBreeds)
+
+        XCTAssertEqual(sut.last, resourceBreeds)
+
+        wait(for: [expectation], timeout: .leastNonzeroMagnitude)
+    }
+
     func test_replaces_error_with_empty_array() {
         var subscriptions = Set<AnyCancellable>()
         let breedsResource = BreedsResourceStub()

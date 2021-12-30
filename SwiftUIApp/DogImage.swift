@@ -11,7 +11,6 @@ struct DogImage: View {
 
     var dogImage: AnyPublisher<Data?, Never> {
         guard let url = URL(string: imageUrl) else {
-//            log("Invalid dog image URL")
             fatalError()
         }
         return URLSession.shared
@@ -25,15 +24,18 @@ struct DogImage: View {
     @State private var imageData: Data? = nil
 
     var body: some View {
-        Group {
-            if let data = imageData, let uiImage = UIImage(data: data) {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .clipShape(Circle())
-                    .overlay(Circle().stroke(Color.black, lineWidth: 4).shadow(radius: 10))
-            } else {
-                EmptyView()
+        withAnimation(Animation.easeIn(duration: 1)) {
+            Group {
+                if let data = imageData, let uiImage = UIImage(data: data) {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .clipShape(Circle())
+                        .overlay(Circle().stroke(Color.black, lineWidth: 4).shadow(radius: 10))
+                } else {
+                    ProgressView().progressViewStyle(.circular)
+                        .frame(width: 50, height: 50, alignment: .center)
+                }
             }
         }
         .onReceive(dogImage) { imageData in

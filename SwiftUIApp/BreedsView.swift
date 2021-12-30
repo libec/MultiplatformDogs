@@ -32,8 +32,10 @@ struct BreedsView: View {
         NavigationView {
             List {
                 ForEach(output.displayableBreeds, id: \.name) { breed in
-                    Button(breed.name)
-                        .foregroundColor(.black)
+                    Button(breed.name) {
+                        breedViewModel.select(breed: breed.identifier)
+                    }
+                    .foregroundColor(.black)
                 }
             }
             .navigationTitle("Dogs")
@@ -45,24 +47,4 @@ struct BreedsView: View {
 protocol BreedItemViewModel {
     func select()
     var output: AnyPublisher<String, Never> { get }
-}
-
-struct BreedCell: View {
-
-    private let breedItemViewModel: BreedItemViewModel
-    @State private var displayableBreed: DisplayableBreeds
-
-    init(name: String, breedItemViewModel: BreedItemViewModel) {
-        self.breedItemViewModel = breedItemViewModel
-    }
-
-    var body: some View {
-        content.onReceive(breedItemViewModel.output) { breedName in
-            self.name = breedName
-        }
-    }
-
-    var content: some View {
-        Button(name, action: breedItemViewModel.select)
-    }
 }

@@ -26,13 +26,13 @@ public final class BreedsLocalRepository: BreedsRepository {
 
     public lazy var query: AnyPublisher<[Breed], Never> = {
         breedsResource.fetch()
-            
             .replaceError(with: [])
             .share()
+            .handleEvents(receiveOutput: { breeds in
+                self.last = breeds
+            })
             .eraseToAnyPublisher()
     }()
 
-    public var last: [Breed] {
-        []
-    }
+    public private(set) var last: [Breed] = []
 }
