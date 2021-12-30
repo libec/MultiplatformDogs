@@ -19,15 +19,22 @@ class BreedsRepositorySpy: BreedsRepository {
     var query: AnyPublisher<[Breed], Never> {
         Empty().eraseToAnyPublisher()
     }
+
+    var last: [Breed] = []
 }
 
 class BreedsRepositoryStub: BreedsRepository {
 
     var subject = PassthroughSubject<[Breed], Never>()
+    var lastToReturn: [Breed] = []
 
     func fetch() { }
 
     var query: AnyPublisher<[Breed], Never> {
         return subject.eraseToAnyPublisher()
+    }
+
+    var last: [Breed] {
+        lastToReturn
     }
 }

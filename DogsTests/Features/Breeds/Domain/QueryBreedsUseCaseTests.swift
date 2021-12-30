@@ -17,7 +17,7 @@ class QueryBreedsUseCaseTests: XCTestCase {
         let sut = QueryBreedsUseCaseImpl(repository: repository)
 
         let expectation = XCTestExpectation()
-        let repositoryBreeds = ["corgi", "dane"].map(Breed.init)
+        let repositoryBreeds = ["corgi", "dane"].map { Breed(name: $0) }
 
         sut.query()
             .sink { breeds in

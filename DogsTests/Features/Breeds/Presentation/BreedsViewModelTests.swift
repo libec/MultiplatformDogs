@@ -33,35 +33,27 @@ class BreedsViewModelTests: XCTestCase {
     }
 
     func test_selected_breed_is_passed_to_use_case() {
-        var subscriptions = Set<AnyCancellable>()
-        let useCaseBreeds = [Breed(name: "dalmatian"), Breed(name: "cocker spaniel"), Breed(name: "chihuaha")]
+        let useCaseBreeds = [Breed( name: "dalmatian"), Breed(name: "cocker spaniel"), Breed(name: "chihuaha")]
         let queryBreedsUseCase = QueryBreedsUseCaseStub(breeds: useCaseBreeds)
         let selectBreedUseCase = SelectBreedUseCaseSpy()
         let sut = BreedsViewModelImpl(
             queryUseCase: queryBreedsUseCase,
             selectBreedUseCase: selectBreedUseCase
         )
+        sut.select(breed: "Dog_123_11")
 
-        let expectation = XCTestExpectation()
-        sut.output
-            .sink { output in
-                output.displayableBreeds[1].selection()
-                XCTAssertEqual(selectBreedUseCase.selectedBreed, Breed(name: "cocker spaniel"))
-                expectation.fulfill()
-            }
-            .store(in: &subscriptions)
-
-
-        wait(for: [expectation], timeout: .leastNonzeroMagnitude)
+        XCTAssertEqual(selectBreedUseCase.selectedBreedId, "Dog_123_11")
     }
 }
 
 typealias SelectBreedUseCaseDummy = SelectBreedUseCaseSpy
 
 class SelectBreedUseCaseSpy: SelectBreedUseCase {
-    var selectedBreed: Breed?
-    func select(breed: Breed) {
-        selectedBreed = breed
+
+    var selectedBreedId: ID?
+
+    func select(breedID: ID) {
+        self.selectedBreedId = breedID
     }
 }
 

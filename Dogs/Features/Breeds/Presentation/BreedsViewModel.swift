@@ -8,27 +8,28 @@
 import Combine
 import Foundation
 
-public struct DisplayableBreeds {
+public struct DisplayableBreed {
+    public let identifier: ID
     public let name: String
-    public let selection: (() -> Void)
 
-    public init(name: String, selection: @escaping (() -> Void)) {
+    public init(identifier: ID, name: String) {
         self.name = name
-        self.selection = selection
+        self.identifier = identifier
     }
 }
 
 public struct BreedsViewModelOutput {
 
-    public let displayableBreeds: [DisplayableBreeds]
+    public let displayableBreeds: [DisplayableBreed]
 
-    public init(displayableBreeds: [DisplayableBreeds]) {
+    public init(displayableBreeds: [DisplayableBreed]) {
         self.displayableBreeds = displayableBreeds
     }
 }
 
 public protocol BreedsViewModel {
     var output: AnyPublisher<BreedsViewModelOutput, Never> { get }
+    func select(breed: ID)
 }
 
 public final class BreedsViewModelImpl: BreedsViewModel {
@@ -44,10 +45,7 @@ public final class BreedsViewModelImpl: BreedsViewModel {
                         lhs.name < rhs.name
                     })
                     .map { breed in
-                    DisplayableBreeds(name: breed.name.capitalized) { [weak self] () -> Void in
-                        guard let unwrappedSelf = self else { return }
-                        unwrappedSelf.selectBreedUseCase.select(breed: breed)
-                    }
+                        DisplayableBreed(identifier: breed.identifier, name: breed.name.capitalized)
                 }
             )
         }
@@ -60,5 +58,9 @@ public final class BreedsViewModelImpl: BreedsViewModel {
     ) {
         self.queryUseCase = queryUseCase
         self.selectBreedUseCase = selectBreedUseCase
+    }
+
+    public func select(breed: ID) {
+        selectBreedUseCase.select(breedID: breed)
     }
 }

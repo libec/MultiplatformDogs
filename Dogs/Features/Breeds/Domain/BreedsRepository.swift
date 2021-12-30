@@ -10,6 +10,7 @@ import Combine
 
 public protocol BreedsRepository {
     var query: AnyPublisher<[Breed], Never> { get }
+    var last: [Breed] { get }
 }
 
 public final class BreedsLocalRepository: BreedsRepository {
@@ -25,8 +26,13 @@ public final class BreedsLocalRepository: BreedsRepository {
 
     public lazy var query: AnyPublisher<[Breed], Never> = {
         breedsResource.fetch()
+            
             .replaceError(with: [])
             .share()
             .eraseToAnyPublisher()
     }()
+
+    public var last: [Breed] {
+        []
+    }
 }

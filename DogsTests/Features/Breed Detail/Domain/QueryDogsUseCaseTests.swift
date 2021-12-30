@@ -21,10 +21,11 @@ class QueryDogsUseCaseTests: XCTestCase {
             breedDetailResource: breedDetailResource
         )
 
-        selectedBreedUseCase.subject.send(Breed(name: "pitbull"))
+        let useCaseBreed = Breed(identifier: "Dog", name: "pitbull")
+        selectedBreedUseCase.subject.send(useCaseBreed)
         sut.query().sink(receiveValue: { _ in }).store(in: &subscriptions)
 
-        XCTAssertEqual(breedDetailResource.queryBreed, Breed(name: "pitbull"))
+        XCTAssertEqual(breedDetailResource.queryBreed, useCaseBreed)
     }
 
     func test_returns_dogs_from_resource() {

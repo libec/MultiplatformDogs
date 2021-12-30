@@ -15,7 +15,7 @@ class BreedsLocalRepositoryTests: XCTestCase {
         var subscriptions = Set<AnyCancellable>()
         let breedsResource = BreedsResourceStub()
         let sut = BreedsLocalRepository(breedsResource: breedsResource)
-        let resourceBreeds = ["akita", "boxer", "chow"].map(Breed.init)
+        let resourceBreeds = ["akita", "boxer", "chow"].map {Breed(name: $0) }
 
         let expectation = XCTestExpectation()
 

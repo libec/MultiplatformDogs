@@ -23,7 +23,7 @@ public final class BreedsRemoteResource: BreedsResource {
             .dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: BreedResourceDto.self, decoder: JSONDecoder())
-            .map { dto in dto.breeds.keys.map(Breed.init(name:)) }
+            .map { dto in dto.breeds.keys.map { Breed(name: $0) } }
             .eraseToAnyPublisher()
     }
 }
