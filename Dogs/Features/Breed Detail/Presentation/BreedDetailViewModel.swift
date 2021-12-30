@@ -9,10 +9,15 @@ import Combine
 import Foundation
 
 public struct DisplayableDog: Equatable {
-    public let imageUrl: String
 
-    public init(imageUrl: String) {
+    public let dogId: ID
+    public let imageUrl: String
+    public let favorite: Bool
+
+    public init(dogID: ID, imageUrl: String, favorite: Bool) {
+        self.dogId = dogID
         self.imageUrl = imageUrl
+        self.favorite = favorite
     }
 }
 
@@ -28,7 +33,7 @@ public final class BreedDetailViewModelImpl: BreedDetailViewModel {
         queryDogsUseCase.query()
             .map { dogs in
                 dogs.map { dog in
-                    DisplayableDog(imageUrl: dog.imageUrl)
+                    DisplayableDog(dogID: dog.identifier, imageUrl: dog.imageUrl, favorite: false)
                 }
             }
             .eraseToAnyPublisher()

@@ -25,7 +25,7 @@ public final class BreedDetailRemoteResource: BreedDetailResource {
             .decode(type: BreedDetailResourceDto.self, decoder: JSONDecoder())
             .map { dto in
                 dto.breeds.map { dogImageUrl in
-                    Dog(breed: breed, imageUrl: dogImageUrl)
+                    Dog(imageUrl: dogImageUrl)
                 }
             }
             .eraseToAnyPublisher()

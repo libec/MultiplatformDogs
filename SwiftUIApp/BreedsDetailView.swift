@@ -1,7 +1,6 @@
 import SwiftUI
 import Combine
 import Dogs
-import UIKitApp
 
 struct BreedsDetailView: View {
 
@@ -50,7 +49,7 @@ struct DogsCollectionView: View {
                 LazyVGrid(columns: gridItems, alignment: .center, spacing: 16) {
                     ForEach(dogs, id: \.imageUrl) { dog in
                         let size = reader.size.width / Double(gridItems.count) - 16
-                        DogImage(imageUrl: dog.imageUrl, imageResource: imageResource)
+                        DogImage(dog: dog, imageResource: imageResource)
                             .frame(
                                 width: size,
                                 height: size,
@@ -66,8 +65,8 @@ struct DogsCollectionView: View {
 struct DogsCollectionView_Previews: PreviewProvider {
     static var previews: some View {
         DogsCollectionView(dogs: [
-            DisplayableDog(imageUrl: "https://images.dog.ceo/breeds/affenpinscher/n02110627_11279.jpg"),
-            DisplayableDog(imageUrl: "https://images.dog.ceo/breeds/newfoundland/n02111277_6616.jpg")
+            DisplayableDog(dogID: "dog", imageUrl: "https://images.dog.ceo/breeds/affenpinscher/n02110627_11279.jpg", favorite: false),
+            DisplayableDog(dogID: "secondDog", imageUrl: "https://images.dog.ceo/breeds/newfoundland/n02111277_6616.jpg", favorite: true)
         ], imageResource: DogsImageCachedResource())
     }
 }
