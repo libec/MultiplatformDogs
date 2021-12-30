@@ -81,7 +81,8 @@ extension BreedsViewController: UITableViewDelegate {
         guard let breeds = displayedBreeds else { return }
 
         if breeds.displayableBreeds.indices.contains(indexPath.row) {
-            breeds.displayableBreeds[indexPath.row].selection()
+            let breed = breeds.displayableBreeds[indexPath.row]
+            viewModel.select(breed: breed.identifier)
         }
     }
 }
