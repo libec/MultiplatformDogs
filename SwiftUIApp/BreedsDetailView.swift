@@ -1,14 +1,18 @@
 import SwiftUI
 import Combine
 import Dogs
+import UIKitApp
 
 struct BreedsDetailView: View {
 
-    let breedDetailViewModel: BreedDetailViewModel
+    private let breedDetailViewModel: BreedDetailViewModel
+    private let imageResource: DogsImageResource
+
     @State private var dogs: [DisplayableDog] = []
 
-    init(breedDetailViewModel: BreedDetailViewModel) {
+    init(breedDetailViewModel: BreedDetailViewModel, imageResource: DogsImageResource) {
         self.breedDetailViewModel = breedDetailViewModel
+        self.imageResource = imageResource
     }
 
     private var dogsOutput: AnyPublisher<[DisplayableDog], Never> {
@@ -18,7 +22,7 @@ struct BreedsDetailView: View {
     }
 
     var body: some View {
-        DogsCollectionView(dogs: dogs)
+        DogsCollectionView(dogs: dogs, imageResource: imageResource)
         .onReceive(dogsOutput) { dogs in
             self.dogs = dogs
         }
@@ -28,6 +32,13 @@ struct BreedsDetailView: View {
 struct DogsCollectionView: View {
 
     var dogs: [DisplayableDog]
+
+    private let imageResource: DogsImageResource
+
+    init(dogs: [DisplayableDog], imageResource: DogsImageResource) {
+        self.dogs = dogs
+        self.imageResource = imageResource
+    }
 
     var gridItems: [GridItem] {
         [GridItem(.flexible()), GridItem(.flexible())]
@@ -39,7 +50,7 @@ struct DogsCollectionView: View {
                 LazyVGrid(columns: gridItems, alignment: .center, spacing: 16) {
                     ForEach(dogs, id: \.imageUrl) { dog in
                         let size = reader.size.width / Double(gridItems.count) - 16
-                        DogImage(imageUrl: dog.imageUrl)
+                        DogImage(imageUrl: dog.imageUrl, imageResource: imageResource)
                             .frame(
                                 width: size,
                                 height: size,
@@ -57,6 +68,6 @@ struct DogsCollectionView_Previews: PreviewProvider {
         DogsCollectionView(dogs: [
             DisplayableDog(imageUrl: "https://images.dog.ceo/breeds/affenpinscher/n02110627_11279.jpg"),
             DisplayableDog(imageUrl: "https://images.dog.ceo/breeds/newfoundland/n02111277_6616.jpg")
-        ])
+        ], imageResource: DogsImageCachedResource())
     }
 }

@@ -1,22 +1,23 @@
 import SwiftUI
 import Combine
+import UIKitApp
+import Dogs
 
 struct DogImage: View {
     let imageUrl: String
+    let imageResource: DogsImageResource
 
-    init(imageUrl: String) {
+    init(imageUrl: String, imageResource: DogsImageResource) {
         self.imageUrl = imageUrl
+        self.imageResource = imageResource
     }
-
 
     var dogImage: AnyPublisher<Data?, Never> {
         guard let url = URL(string: imageUrl) else {
             fatalError()
         }
-        return URLSession.shared
-            .dataTaskPublisher(for: url)
-            .map { $0.data }
-            .replaceError(with: nil)
+        return imageResource
+            .imageData(for: url)
             .receive(on: DispatchQueue.main, options: .none)
             .eraseToAnyPublisher()
     }

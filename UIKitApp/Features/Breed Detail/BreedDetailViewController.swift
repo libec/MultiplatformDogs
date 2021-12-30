@@ -6,6 +6,7 @@ import Dogs
 final class BreedsDetailViewController: UIViewController {
 
     private var viewModel: BreedDetailViewModel!
+    private var dogsImageResource: DogsImageResource!
 
     private var subscriptions = Set<AnyCancellable>()
 
@@ -15,9 +16,10 @@ final class BreedsDetailViewController: UIViewController {
     private let dogsCellIdentifier = "DogCell"
     private let insets: CGFloat = 16
 
-    static func make(viewModel: BreedDetailViewModel) -> BreedsDetailViewController {
+    static func make(viewModel: BreedDetailViewModel, dogsImageResource: DogsImageResource) -> BreedsDetailViewController {
         let viewController = BreedsDetailViewController()
         viewController.viewModel = viewModel
+        viewController.dogsImageResource = dogsImageResource
         return viewController
     }
 
@@ -74,7 +76,7 @@ extension BreedsDetailViewController: UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let cell = cell as? DogCell, displayedDogs.indices.contains(indexPath.row) {
             let displayableDog = displayedDogs[indexPath.row]
-            cell.show(displayableDog: displayableDog)
+            cell.show(displayableDog: displayableDog, resource: dogsImageResource)
         }
     }
 }

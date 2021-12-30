@@ -37,21 +37,17 @@ final class DogCell: UICollectionViewCell {
         contentView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
     }
 
-    func show(displayableDog: DisplayableDog) {
+    func show(displayableDog: DisplayableDog, resource: DogsImageResource) {
         guard let url = URL(string: displayableDog.imageUrl) else {
             log("Invalid dog image URL")
             return
         }
 
-        // NOTE: - This is kinda fast'n furious style of solution, it'd make more sense to have a feature for the cell with some of it's own data access layers
-        // but you get the gist from the other features
-        URLSession.shared
-            .dataTaskPublisher(for: url)
-            .map { UIImage(data: $0.data) }
-            .replaceError(with: nil)
+        resource
+            .imageData(for: url)
             .receive(on: DispatchQueue.main, options: .none)
-            .sink { image in
-                self.imageView.image = image
+            .sink { data in
+                self.imageView.image = UIImage(data: data!)
             }.store(in: &subscriptions)
     }
 }

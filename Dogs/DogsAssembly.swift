@@ -8,6 +8,7 @@ public struct DogsAssembly {
         APIAssembly(),
         BreedDetailAssembly(),
         BreedsAssembly(),
+        DogsImageResourceAssembly(),
         InstanceProviderAssembly(),
         SelectedBreedsAssembly(),
     ]
