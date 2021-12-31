@@ -7,6 +7,16 @@
 
 import Combine
 
+enum QueryDogsRequest {
+    case favorite
+    case selected
+}
+
+struct QueryDogsResponse {
+    let imageUrl: String
+    let favorite: Bool
+}
+
 public protocol QueryDogsUseCase {
     func query() -> AnyPublisher<[Dog], Never>
 }
@@ -14,9 +24,6 @@ public protocol QueryDogsUseCase {
 public struct QueryDogsUseCaseImpl: QueryDogsUseCase {
 
     private let selectedBreedUseCase: QuerySelectedBreedUseCase
-
-    // NOTE: - this demonstrates that you don't always need to use repository
-    // if it makes sense to just load the data and not share them anywhere
     private let breedDetailResource: BreedDetailResource
 
     public init(selectedBreedUseCase: QuerySelectedBreedUseCase, breedDetailResource: BreedDetailResource) {

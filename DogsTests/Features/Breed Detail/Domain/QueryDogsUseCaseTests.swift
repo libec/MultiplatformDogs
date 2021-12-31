@@ -38,7 +38,7 @@ class QueryDogsUseCaseTests: XCTestCase {
         )
 
         let breed = Breed(name: "pitbull")
-        let dogs = [Dog(breed: breed, imageUrl: "Imageurl"), Dog(breed: breed, imageUrl: "http://image2")]
+        let dogs = [Dog(imageUrl: "Imageurl"), Dog(imageUrl: "http://image2")]
         selectedBreedUseCase.subject.send(breed)
         breedDetailResource.subject.send(dogs)
 

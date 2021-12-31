@@ -65,8 +65,8 @@ struct DogsCollectionView: View {
 struct DogsCollectionView_Previews: PreviewProvider {
     static var previews: some View {
         DogsCollectionView(dogs: [
-            DisplayableDog(dogID: "dog", imageUrl: "https://images.dog.ceo/breeds/affenpinscher/n02110627_11279.jpg", favorite: false),
-            DisplayableDog(dogID: "secondDog", imageUrl: "https://images.dog.ceo/breeds/newfoundland/n02111277_6616.jpg", favorite: true)
+            DisplayableDog(imageUrl: "https://images.dog.ceo/breeds/affenpinscher/n02110627_11279.jpg", favorite: false),
+            DisplayableDog(imageUrl: "https://images.dog.ceo/breeds/newfoundland/n02111277_6616.jpg", favorite: true)
         ], imageResource: DogsImageCachedResource())
     }
 }

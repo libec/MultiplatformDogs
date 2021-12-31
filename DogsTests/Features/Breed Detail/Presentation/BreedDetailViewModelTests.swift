@@ -17,20 +17,19 @@ class BreedsDetailViewModelTests: XCTestCase {
         let queryDogsUseCase = QueryDogsUseCaseStub()
         let sut = BreedDetailViewModelImpl(queryDogsUseCase: queryDogsUseCase)
 
-        let breed = Breed(name: "ridgeback")
         let dogs = [
-            Dog(breed: breed, imageUrl: "image1"),
-            Dog(breed: breed, imageUrl: "image331"),
-            Dog(breed: breed, imageUrl: "image901"),
-            Dog(breed: breed, imageUrl: "image123"),
+            Dog(imageUrl: "image1"),
+            Dog(imageUrl: "image331"),
+            Dog(imageUrl: "image901"),
+            Dog(imageUrl: "image123"),
         ]
         queryDogsUseCase.subject.send(dogs)
         let expectation = XCTestExpectation()
         let expectedDisplayableDogs: [DisplayableDog] = [
-            DisplayableDog(imageUrl: "image1"),
-            DisplayableDog(imageUrl: "image331"),
-            DisplayableDog(imageUrl: "image901"),
-            DisplayableDog(imageUrl: "image123"),
+            DisplayableDog(imageUrl: "image1", favorite: false),
+            DisplayableDog(imageUrl: "image331", favorite: false),
+            DisplayableDog(imageUrl: "image901", favorite: false),
+            DisplayableDog(imageUrl: "image123", favorite: false),
         ]
 
         sut.output.sink { displayableDogs in

@@ -8,11 +8,9 @@
 import Foundation
 
 public struct Dog: Equatable {
-    public let identifier: ID
     public let imageUrl: String
 
-    public init(identifier: ID = UUID().uuidString, imageUrl: String) {
-        self.identifier = identifier
+    public init(imageUrl: String) {
         self.imageUrl = imageUrl
     }
 }

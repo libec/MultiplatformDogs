@@ -57,14 +57,12 @@ struct DogImage_Previews: PreviewProvider {
     static var previews: some View {
         VStack(spacing: 4) {
         DogImage(dog: DisplayableDog(
-            dogID: "pes",
             imageUrl: "https://images.dog.ceo/breeds/affenpinscher/n02110627_11279.jpg",
             favorite: true
         ), imageResource: DogsImageCachedResource()
         )
 
         DogImage(dog: DisplayableDog(
-            dogID: "pes",
             imageUrl: "https://images.dog.ceo/breeds/affenpinscher/n02110627_11279.jpg",
             favorite: false
         ), imageResource: DogsImageCachedResource()
