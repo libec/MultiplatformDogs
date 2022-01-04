@@ -1,10 +1,3 @@
-//
-//  QueryDogsUseCaseTests.swift
-//  DogsTests
-//
-//  Created by Libor Huspenina on 21.10.2021.
-//
-
 import XCTest
 import Combine
 import Dogs

@@ -1,10 +1,3 @@
-//
-//  QueryBreedsUseCAse.swift
-//  Dogs
-//
-//  Created by Libor Huspenina on 18.10.2021.
-//
-
 import Combine
 
 public protocol QueryBreedsUseCase {

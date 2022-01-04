@@ -1,10 +1,3 @@
-//
-//  BreedsRepositoryMocks.swift
-//  DogsTests
-//
-//  Created by Libor Huspenina on 18.10.2021.
-//
-
 import Dogs
 import Combine
 

@@ -1,10 +1,3 @@
-//
-//  BreedsViewController.swift
-//  Dogs
-//
-//  Created by Libor Huspenina on 17.10.2021.
-//
-
 import UIKit
 import Combine
 import Dogs

@@ -1,10 +1,3 @@
-//
-//  BreedDetailViewModelTests.swift
-//  DogsTests
-//
-//  Created by Libor Huspenina on 21.10.2021.
-//
-
 import Combine
 import XCTest
 import Dogs

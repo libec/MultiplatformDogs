@@ -1,10 +1,3 @@
-//
-//  BreedDetailRemoteResource.swift
-//  Dogs
-//
-//  Created by Libor Huspenina on 21.10.2021.
-//
-
 import Combine
 import Foundation
 

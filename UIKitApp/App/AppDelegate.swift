@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  Dogs
-//
-//  Created by Libor Huspenina on 17.10.2021.
-//
-
 import UIKit
 
 @main

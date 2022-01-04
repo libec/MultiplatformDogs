@@ -1,10 +1,3 @@
-//
-//  DogsTests.swift
-//  DogsTests
-//
-//  Created by Libor Huspenina on 17.10.2021.
-//
-
 import XCTest
 import Dogs
 
