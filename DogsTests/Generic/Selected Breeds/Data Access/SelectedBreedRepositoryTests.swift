@@ -1,10 +1,3 @@
-//
-//  SelectedBreedRepositoryTests.swift
-//  DogsTests
-//
-//  Created by Libor Huspenina on 20.10.2021.
-//
-
 import Dogs
 import XCTest
 import Combine

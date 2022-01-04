@@ -6,3 +6,4 @@ public protocol FavoriteDogsRepository {
     var last: [Dog] { get }
     var favoriteDogs: AnyPublisher<[Dog], Never> { get }
 }
+
