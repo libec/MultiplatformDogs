@@ -12,7 +12,7 @@ import Dogs
 
 struct BreedsView: View {
 
-    @State private var output: BreedsViewModelOutput = .init(displayableBreeds: [])
+    @State private var output: [DisplayableBreed] = []
     let breedViewModel: BreedsViewModel
     let navigation: SwiftUINavigation
 
@@ -31,7 +31,7 @@ struct BreedsView: View {
     var content: some View {
         NavigationView {
             List {
-                ForEach(output.displayableBreeds, id: \.name) { breed in
+                ForEach(output, id: \.name) { breed in
                     Button(breed.name) {
                         breedViewModel.select(breed: breed.identifier)
                     }

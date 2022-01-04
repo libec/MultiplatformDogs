@@ -23,7 +23,7 @@ class BreedsViewModelTests: XCTestCase {
         let expectation = XCTestExpectation()
         sut.output
             .sink { output in
-                XCTAssertEqual(["Cocker Spaniel", "Dalmatian", "Viszla"], output.displayableBreeds.map(\.name))
+                XCTAssertEqual(["Cocker Spaniel", "Dalmatian", "Viszla"], output.map(\.name))
                 expectation.fulfill()
             }
             .store(in: &subscriptions)
