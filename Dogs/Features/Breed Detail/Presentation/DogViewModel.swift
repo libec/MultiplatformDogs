@@ -13,6 +13,6 @@ public final class DogViewModelImpl: DogViewModel {
     }
 
     public func toggleFavorite() {
-
+        log("Dog Image tapped")
     }
 }

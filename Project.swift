@@ -65,7 +65,7 @@ let swiftUIApp = Target(
     bundleId: "com.example.dogs.swiftui",
     infoPlist: .extendingDefault(with: ["UILaunchScreen": [:]]),
     sources: "SwiftUIApp/**",
-    resources: "SwiftUIApp/Assets/**",
+    resources: "SwiftUIApp/App/Assets/**",
     dependencies: [
         .target(name: "Dogs"),
         .package(product: "Swinject"),

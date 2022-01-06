@@ -40,7 +40,7 @@ struct DogImage: View {
                         .renderingMode(.original)
                         .font(.largeTitle)
                         .onTapGesture {
-                            print("Tapped dog: \(dog.imageUrl)")
+                            viewModel.toggleFavorite()
                         }
 
                 }
