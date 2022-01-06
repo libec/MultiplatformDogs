@@ -2,7 +2,7 @@ import SwiftUI
 import Combine
 import Dogs
 
-struct BreedsDetailView: View {
+struct BreedDetailView: View {
 
     private let breedDetailViewModel: BreedDetailViewModel
     private let imageResource: DogsImageResource
@@ -49,7 +49,7 @@ struct DogsCollectionView: View {
                 LazyVGrid(columns: gridItems, alignment: .center, spacing: 16) {
                     ForEach(dogs, id: \.imageUrl) { dog in
                         let size = reader.size.width / Double(gridItems.count) - 16
-                        DogImage(dog: dog, imageResource: imageResource)
+                        dogImage(for: dog)
                             .frame(
                                 width: size,
                                 height: size,
@@ -59,6 +59,10 @@ struct DogsCollectionView: View {
                 }
             }
         }
+    }
+
+    private func dogImage(for displayableDog: DisplayableDog) -> DogImage {
+         DogImage(dog: displayableDog, imageResource: imageResource)
     }
 }
 

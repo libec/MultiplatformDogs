@@ -7,7 +7,7 @@ class SwiftUIAppAssembly: Assembly {
     func assemble(container: Container) {
         container.autoregister(BreedsView.self, initializer: BreedsView.init)
         container.autoregister(SwiftUINavigation.self, initializer: SwiftUINavigation.init).implements(Coordinator.self).inObjectScope(.container)
-        container.autoregister(BreedsDetailView.self, initializer: BreedsDetailView.init)
+        container.autoregister(BreedDetailView.self, initializer: BreedDetailView.init)
     }
 
     func loaded(resolver: Resolver) {

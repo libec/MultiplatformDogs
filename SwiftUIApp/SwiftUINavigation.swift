@@ -26,7 +26,7 @@ struct SwiftUINavigation: Coordinator, ViewModifier {
 
     func body(content: Content) -> some View {
         content
-        .background(NavigationLink(destination: instanceProvider.resolve(BreedsDetailView.self), isActive: $shownBreedDetail) { EmptyView() })
+        .background(NavigationLink(destination: instanceProvider.resolve(BreedDetailView.self), isActive: $shownBreedDetail) { EmptyView() })
         .onReceive(showDetailPublisher) { selectedBreed in
             shownBreedDetail = selectedBreed != nil
         }
