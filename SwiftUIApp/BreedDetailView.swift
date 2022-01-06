@@ -5,13 +5,13 @@ import Dogs
 struct BreedDetailView: View {
 
     private let breedDetailViewModel: BreedDetailViewModel
-    private let imageResource: DogsImageResource
+    private let instanceProvider: InstanceProvider
 
     @State private var dogs: [DisplayableDog] = []
 
-    init(breedDetailViewModel: BreedDetailViewModel, imageResource: DogsImageResource) {
+    init(breedDetailViewModel: BreedDetailViewModel, instanceProvider: InstanceProvider) {
         self.breedDetailViewModel = breedDetailViewModel
-        self.imageResource = imageResource
+        self.instanceProvider = instanceProvider
     }
 
     private var dogsOutput: AnyPublisher<[DisplayableDog], Never> {
@@ -21,7 +21,7 @@ struct BreedDetailView: View {
     }
 
     var body: some View {
-        DogsCollectionView(dogs: dogs, imageResource: imageResource)
+        DogsCollectionView(dogs: dogs, instanceProvider: instanceProvider)
         .onReceive(dogsOutput) { dogs in
             self.dogs = dogs
         }
@@ -31,12 +31,11 @@ struct BreedDetailView: View {
 struct DogsCollectionView: View {
 
     var dogs: [DisplayableDog]
+    private let instanceProvider: InstanceProvider
 
-    private let imageResource: DogsImageResource
-
-    init(dogs: [DisplayableDog], imageResource: DogsImageResource) {
+    init(dogs: [DisplayableDog], instanceProvider: InstanceProvider) {
         self.dogs = dogs
-        self.imageResource = imageResource
+        self.instanceProvider = instanceProvider
     }
 
     var gridItems: [GridItem] {
@@ -62,15 +61,6 @@ struct DogsCollectionView: View {
     }
 
     private func dogImage(for displayableDog: DisplayableDog) -> DogImage {
-         DogImage(dog: displayableDog, imageResource: imageResource)
-    }
-}
-
-struct DogsCollectionView_Previews: PreviewProvider {
-    static var previews: some View {
-        DogsCollectionView(dogs: [
-            DisplayableDog(imageUrl: "https://images.dog.ceo/breeds/affenpinscher/n02110627_11279.jpg", favorite: false),
-            DisplayableDog(imageUrl: "https://images.dog.ceo/breeds/newfoundland/n02111277_6616.jpg", favorite: true)
-        ], imageResource: DogsImageCachedResource())
+        instanceProvider.resolve(DogImage.self, argument: displayableDog)
     }
 }

@@ -6,11 +6,13 @@ struct DogImage: View {
 
     let dog: DisplayableDog
     let imageResource: DogsImageResource
+    let viewModel: DogViewModel
 
     @State private var imageData: Data? = nil
 
-    init(dog: DisplayableDog, imageResource: DogsImageResource) {
+    init(dog: DisplayableDog, viewModel: DogViewModel, imageResource: DogsImageResource) {
         self.dog = dog
+        self.viewModel = viewModel
         self.imageResource = imageResource
     }
 
@@ -50,23 +52,5 @@ struct DogImage: View {
         .onReceive(dogImage) { imageData in
             self.imageData = imageData
         }
-    }
-}
-
-struct DogImage_Previews: PreviewProvider {
-    static var previews: some View {
-        VStack(spacing: 4) {
-        DogImage(dog: DisplayableDog(
-            imageUrl: "https://images.dog.ceo/breeds/affenpinscher/n02110627_11279.jpg",
-            favorite: true
-        ), imageResource: DogsImageCachedResource()
-        )
-
-        DogImage(dog: DisplayableDog(
-            imageUrl: "https://images.dog.ceo/breeds/affenpinscher/n02110627_11279.jpg",
-            favorite: false
-        ), imageResource: DogsImageCachedResource()
-        )
-        }.frame(width: 200, height: 200, alignment: .center)
     }
 }
