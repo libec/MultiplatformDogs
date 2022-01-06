@@ -9,6 +9,7 @@ public struct DogsAssembly {
         BreedDetailAssembly(),
         BreedsAssembly(),
         DogsImageResourceAssembly(),
+        FavoriteDogsAssembly(),
         InstanceProviderAssembly(),
         SelectedBreedsAssembly(),
     ]
