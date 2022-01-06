@@ -8,7 +8,7 @@ final class BreedsViewController: UIViewController {
 
     private var subscriptions = Set<AnyCancellable>()
 
-    private var displayedBreeds: BreedsViewModelOutput?
+    private var displayedBreeds: [DisplayableBreed] = []
 
     private let tableView = UITableView()
     private let breedCellIdentifier = "BreedCell"
@@ -55,26 +55,24 @@ extension BreedsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        displayedBreeds?.displayableBreeds.count ?? 0
+        displayedBreeds.count
     }
 }
 
 extension BreedsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard let breeds = displayedBreeds else { return }
-        if breeds.displayableBreeds.indices.contains(indexPath.row) {
-            let breed = breeds.displayableBreeds[indexPath.row].name
+        if displayedBreeds.indices.contains(indexPath.row) {
+            let breed = displayedBreeds[indexPath.row].name
             cell.textLabel?.text = breed
         }
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let breeds = displayedBreeds else { return }
 
-        if breeds.displayableBreeds.indices.contains(indexPath.row) {
-            let breed = breeds.displayableBreeds[indexPath.row]
+        if displayedBreeds.indices.contains(indexPath.row) {
+            let breed = displayedBreeds[indexPath.row]
             viewModel.select(breed: breed.identifier)
         }
     }
