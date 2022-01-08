@@ -8,18 +8,24 @@ public protocol BreedDetailViewModel {
 public final class BreedDetailViewModelImpl: BreedDetailViewModel {
 
     private let queryDogsUseCase: QueryDogsUseCase
+    private let queryFavoriteDogsUseCase: QueryFavoriteDogsUseCase
 
     public var output: AnyPublisher<[DisplayableDog], Never> {
         queryDogsUseCase.query()
-            .map { dogs in
+            .combineLatest(queryFavoriteDogsUseCase.query)
+            .map { dogs, favoriteDogs in
                 dogs.map { dog in
-                    DisplayableDog(imageUrl: dog.imageUrl, favorite: false)
+                    DisplayableDog(imageUrl: dog.imageUrl, favorite: favoriteDogs.contains(dog))
                 }
             }
             .eraseToAnyPublisher()
     }
 
-    public init(queryDogsUseCase: QueryDogsUseCase) {
+    public init(
+        queryDogsUseCase: QueryDogsUseCase,
+        queryFavoriteDogsUseCase: QueryFavoriteDogsUseCase
+    ) {
         self.queryDogsUseCase = queryDogsUseCase
+        self.queryFavoriteDogsUseCase = queryFavoriteDogsUseCase
     }
 }
