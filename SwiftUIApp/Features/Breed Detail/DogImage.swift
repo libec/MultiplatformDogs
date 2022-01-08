@@ -33,16 +33,19 @@ struct DogImage: View {
                 ZStack {
                     Image(uiImage: uiImage)
                         .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .clipShape(Circle())
-                        .overlay(Circle().stroke(Color.black, lineWidth: 4).shadow(radius: 10))
-                    Image(systemName: dog.favorite ? "heart.fill" : "heart")
-                        .renderingMode(.original)
-                        .font(.largeTitle)
-                        .onTapGesture {
-                            viewModel.toggleFavorite()
-                        }
-
+                        .cornerRadius(16)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 16).stroke(Color.black, lineWidth: 3)
+                        )
+                    VStack {
+                        Spacer()
+                        Image(systemName: dog.favorite ? "heart.fill" : "heart")
+                            .renderingMode(.original)
+                            .font(.largeTitle)
+                            .onTapGesture {
+                                viewModel.toggleFavorite()
+                            }
+                    }
                 }
             } else {
                 ProgressView().progressViewStyle(.circular)
