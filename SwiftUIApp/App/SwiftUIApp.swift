@@ -8,7 +8,7 @@ struct SwiftUIApp: App {
 
     var body: some Scene {
         WindowGroup {
-            let view: BreedsView = appStart.startApp()
+            let view: RootView = appStart.startApp()
             view
         }
     }

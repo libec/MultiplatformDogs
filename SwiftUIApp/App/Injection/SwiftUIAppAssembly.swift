@@ -13,6 +13,7 @@ class SwiftUIAppAssembly: Assembly {
             let viewModel = resolver.resolve(DogViewModel.self, argument: dog)!
             return DogImage(dog: dog, viewModel: viewModel, imageResource: imageResource)
         }
+        container.autoregister(RootView.self, initializer: RootView.init)
     }
 
     func loaded(resolver: Resolver) {
