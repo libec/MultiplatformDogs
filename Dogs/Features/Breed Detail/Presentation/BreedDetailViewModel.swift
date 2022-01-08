@@ -10,6 +10,14 @@ public final class BreedDetailViewModelImpl: BreedDetailViewModel {
     private let queryDogsUseCase: QueryDogsUseCase
     private let queryFavoriteDogsUseCase: QueryFavoriteDogsUseCase
 
+    public init(
+        queryDogsUseCase: QueryDogsUseCase,
+        queryFavoriteDogsUseCase: QueryFavoriteDogsUseCase
+    ) {
+        self.queryDogsUseCase = queryDogsUseCase
+        self.queryFavoriteDogsUseCase = queryFavoriteDogsUseCase
+    }
+
     public var output: AnyPublisher<[DisplayableDog], Never> {
         queryDogsUseCase.query()
             .combineLatest(queryFavoriteDogsUseCase.query)
@@ -19,13 +27,5 @@ public final class BreedDetailViewModelImpl: BreedDetailViewModel {
                 }
             }
             .eraseToAnyPublisher()
-    }
-
-    public init(
-        queryDogsUseCase: QueryDogsUseCase,
-        queryFavoriteDogsUseCase: QueryFavoriteDogsUseCase
-    ) {
-        self.queryDogsUseCase = queryDogsUseCase
-        self.queryFavoriteDogsUseCase = queryFavoriteDogsUseCase
     }
 }
