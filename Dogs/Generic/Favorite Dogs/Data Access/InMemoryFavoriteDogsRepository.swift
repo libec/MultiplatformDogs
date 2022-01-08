@@ -25,5 +25,4 @@ final class InMemoryFavoriteDogsRepository: FavoriteDogsRepository {
     var favoriteDogs: AnyPublisher<[Dog], Never> {
         dogs.eraseToAnyPublisher()
     }
-
 }

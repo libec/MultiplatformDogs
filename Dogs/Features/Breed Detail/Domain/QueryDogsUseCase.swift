@@ -1,10 +1,5 @@
 import Combine
 
-enum QueryDogsRequest {
-    case favorite
-    case selected
-}
-
 struct QueryDogsResponse {
     let imageUrl: String
     let favorite: Bool
@@ -19,7 +14,10 @@ public struct QueryDogsUseCaseImpl: QueryDogsUseCase {
     private let selectedBreedUseCase: QuerySelectedBreedUseCase
     private let breedDetailResource: BreedDetailResource
 
-    public init(selectedBreedUseCase: QuerySelectedBreedUseCase, breedDetailResource: BreedDetailResource) {
+    public init(
+        selectedBreedUseCase: QuerySelectedBreedUseCase,
+        breedDetailResource: BreedDetailResource
+    ) {
         self.selectedBreedUseCase = selectedBreedUseCase
         self.breedDetailResource = breedDetailResource
     }
@@ -35,6 +33,7 @@ public struct QueryDogsUseCaseImpl: QueryDogsUseCase {
                 } else {
                     return [].publisher.eraseToAnyPublisher()
                 }
-            }.eraseToAnyPublisher()
+            }
+            .eraseToAnyPublisher()
     }
 }

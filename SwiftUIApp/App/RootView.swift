@@ -21,10 +21,13 @@ struct RootView: View {
                     Image(systemName: "pawprint")
                 }
 
-            favoriteDogsView
-                .tabItem {
-                    Image(systemName: "heart")
-                }
+            NavigationView {
+                favoriteDogsView
+                    .navigationTitle("Favorite Dogs")
+            }
+            .tabItem {
+                Image(systemName: "heart")
+            }
         }
     }
 }
