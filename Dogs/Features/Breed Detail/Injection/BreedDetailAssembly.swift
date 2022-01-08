@@ -5,7 +5,7 @@ final class BreedDetailAssembly: Assembly {
     func assemble(container: Container) {
         container.autoregister(BreedDetailViewModel.self, initializer: BreedDetailViewModelImpl.init)
 
-        container.register(BreedDetailViewModel.self) { (resolver: Resolver, strategy: BreedDetailStrategy) in
+        container.register(BreedDetailViewModel.self) { (resolver: Resolver, strategy: BreedDetailDisplayStrategy) in
             let favoriteDogsUseCase = resolver.resolve(QueryFavoriteDogsUseCase.self)!
             switch strategy {
             case .specificBreed:

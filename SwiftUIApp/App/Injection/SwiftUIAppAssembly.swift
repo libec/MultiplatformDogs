@@ -7,7 +7,7 @@ class SwiftUIAppAssembly: Assembly {
     func assemble(container: Container) {
         container.autoregister(BreedsView.self, initializer: BreedsView.init)
         container.autoregister(SwiftUINavigation.self, initializer: SwiftUINavigation.init).implements(Coordinator.self).inObjectScope(.container)
-        container.register(BreedDetailView.self) { (resolver: Resolver, strategy: BreedDetailStrategy) in
+        container.register(BreedDetailView.self) { (resolver: Resolver, strategy: BreedDetailDisplayStrategy) in
             BreedDetailView(
                 breedDetailViewModel: resolver.resolve(BreedDetailViewModel.self, argument: strategy)!,
                 instanceProvider: resolver.resolve(InstanceProvider.self)!)
@@ -20,7 +20,7 @@ class SwiftUIAppAssembly: Assembly {
         container.register(RootView.self) { resolver in
             RootView(
                 breedView: resolver.resolve(BreedsView.self)!,
-                favoriteDogsView: resolver.resolve(BreedDetailView.self, argument: BreedDetailStrategy.favorites)!
+                favoriteDogsView: resolver.resolve(BreedDetailView.self, argument: BreedDetailDisplayStrategy.favorites)!
             )
         }
     }
