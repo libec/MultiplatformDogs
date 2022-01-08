@@ -5,6 +5,9 @@ import Dogs
 final class DogCell: UICollectionViewCell {
 
     private var subscriptions = Set<AnyCancellable>()
+    private var viewModel: DogViewModel!
+    private var displayableDog: DisplayableDog!
+    private var resource: DogsImageResource!
 
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
@@ -22,6 +25,16 @@ final class DogCell: UICollectionViewCell {
         fatalError("Unavailable")
     }
 
+    func setup(
+        viewModel: DogViewModel,
+        displayableDog: DisplayableDog,
+        resource: DogsImageResource
+    ) {
+        self.viewModel = viewModel
+        self.displayableDog = displayableDog
+        self.resource = resource
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentView.addSubview(imageView)
@@ -32,7 +45,7 @@ final class DogCell: UICollectionViewCell {
         contentView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
     }
 
-    func show(displayableDog: DisplayableDog, resource: DogsImageResource) {
+    func show() {
         guard let url = URL(string: displayableDog.imageUrl) else {
             log("Invalid dog image URL")
             return
@@ -52,8 +65,8 @@ final class DogCell: UICollectionViewCell {
         if let displayedButton = self.likeButton {
             displayedButton.removeFromSuperview()
         }
-        let handler: UIActionHandler = { action in
-            log("Liked dog")
+        let handler: UIActionHandler = { [weak self] action in
+            self?.viewModel?.toggleFavorite()
         }
         let selectAction = UIAction(handler: handler)
         let button = UIButton(frame: CGRect.zero, primaryAction: selectAction)

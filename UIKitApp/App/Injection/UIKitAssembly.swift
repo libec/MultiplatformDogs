@@ -21,6 +21,8 @@ class UIKitAppAssembly: Assembly {
             .flatMap { $0.windows }
             .first { $0.isKeyWindow }!
         }
+
+        container.autoregister(DogCellFactory.self, initializer: DogCellFactoryImpl.init)
     }
 
     func loaded(resolver: Resolver) {

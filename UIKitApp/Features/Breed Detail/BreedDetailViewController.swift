@@ -6,7 +6,7 @@ import Dogs
 final class BreedsDetailViewController: UIViewController {
 
     private var viewModel: BreedDetailViewModel!
-    private var dogsImageResource: DogsImageResource!
+    private var dogCellFactory: DogCellFactory!
 
     private var subscriptions = Set<AnyCancellable>()
 
@@ -16,10 +16,13 @@ final class BreedsDetailViewController: UIViewController {
     private let dogsCellIdentifier = "DogCell"
     private let insets: CGFloat = 16
 
-    static func make(viewModel: BreedDetailViewModel, dogsImageResource: DogsImageResource) -> BreedsDetailViewController {
+    static func make(
+        viewModel: BreedDetailViewModel,
+        dogCellFactory: DogCellFactory
+    ) -> BreedsDetailViewController {
         let viewController = BreedsDetailViewController()
         viewController.viewModel = viewModel
-        viewController.dogsImageResource = dogsImageResource
+        viewController.dogCellFactory = dogCellFactory
         return viewController
     }
 
@@ -48,35 +51,56 @@ final class BreedsDetailViewController: UIViewController {
             .receive(on: DispatchQueue.main, options: .none)
             .sink { [weak self] dogs in
                 guard let unwrappedSelf = self else { return }
+                var indices: [IndexPath] = []
+                for index in 0..<unwrappedSelf.displayedDogs.count {
+                    if !dogs.contains(unwrappedSelf.displayedDogs[index]) {
+                        indices.append(IndexPath(item: index, section: 0))
+                    }
+                }
                 unwrappedSelf.displayedDogs = dogs
-                unwrappedSelf.collectionView.reloadData()
+                unwrappedSelf.collectionView.reloadItems(at: indices)
             }.store(in: &subscriptions)
     }
 }
 
 extension BreedsDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
         let sideSize = (view.frame.size.width / 2) - (insets * 1.5)
         return CGSize(width: sideSize, height: sideSize)
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        collectionView.dequeueReusableCell(withReuseIdentifier: dogsCellIdentifier, for: indexPath)
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        dogCellFactory.cell(for: displayedDogs[indexPath.row], indexPath: indexPath, collectionView: collectionView, reuseIdentifier: dogsCellIdentifier)
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
         displayedDogs.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        insetForSectionAt section: Int
+    ) -> UIEdgeInsets {
         UIEdgeInsets(top: insets, left: insets, bottom: insets, right: insets)
     }
 
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if let cell = cell as? DogCell, displayedDogs.indices.contains(indexPath.row) {
-            let displayableDog = displayedDogs[indexPath.row]
-            cell.show(displayableDog: displayableDog, resource: dogsImageResource)
-        }
+    func collectionView(
+        _ collectionView: UICollectionView,
+        willDisplay cell: UICollectionViewCell,
+        forItemAt indexPath: IndexPath
+    ) {
+        (cell as? DogCell)?.show()
     }
 }
