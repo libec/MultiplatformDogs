@@ -1,10 +1,3 @@
-//
-//  QueryDogsUseCaseTests.swift
-//  DogsTests
-//
-//  Created by Libor Huspenina on 21.10.2021.
-//
-
 import XCTest
 import Combine
 import Dogs
@@ -21,10 +14,11 @@ class QueryDogsUseCaseTests: XCTestCase {
             breedDetailResource: breedDetailResource
         )
 
-        selectedBreedUseCase.subject.send(Breed(name: "pitbull"))
+        let useCaseBreed = Breed(identifier: "Dog", name: "pitbull")
+        selectedBreedUseCase.subject.send(useCaseBreed)
         sut.query().sink(receiveValue: { _ in }).store(in: &subscriptions)
 
-        XCTAssertEqual(breedDetailResource.queryBreed, Breed(name: "pitbull"))
+        XCTAssertEqual(breedDetailResource.queryBreed, useCaseBreed)
     }
 
     func test_returns_dogs_from_resource() {
@@ -37,7 +31,7 @@ class QueryDogsUseCaseTests: XCTestCase {
         )
 
         let breed = Breed(name: "pitbull")
-        let dogs = [Dog(breed: breed, imageUrl: "Imageurl"), Dog(breed: breed, imageUrl: "http://image2")]
+        let dogs = [Dog(imageUrl: "Imageurl"), Dog(imageUrl: "http://image2")]
         selectedBreedUseCase.subject.send(breed)
         breedDetailResource.subject.send(dogs)
 

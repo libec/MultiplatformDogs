@@ -1,10 +1,3 @@
-//
-//  SelectedBreedsAssembly.swift
-//  Dogs
-//
-//  Created by Libor Huspenina on 20.10.2021.
-//
-
 import Swinject
 import SwinjectAutoregistration
 

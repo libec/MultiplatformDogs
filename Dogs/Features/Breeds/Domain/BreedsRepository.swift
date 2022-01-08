@@ -1,16 +1,9 @@
-//
-//  BreedsRepository.swift
-//  Dogs
-//
-//  Created by Libor Huspenina on 17.10.2021.
-//
-
 import Foundation
 import Combine
 
 public protocol BreedsRepository {
-    func fetch()
     var query: AnyPublisher<[Breed], Never> { get }
+    var last: [Breed] { get }
 }
 
 public final class BreedsLocalRepository: BreedsRepository {
@@ -24,20 +17,15 @@ public final class BreedsLocalRepository: BreedsRepository {
         self.breedsResource = breedsResource
     }
 
-    public func fetch() {
+    public lazy var query: AnyPublisher<[Breed], Never> = {
         breedsResource.fetch()
             .replaceError(with: [])
-            .sink { [weak self] breed in
-                // NOTE: - This would deserve better binding to subject than sink
-                // something like resource.fetch().bind(to: subject)
-                guard let unwrappedSelf = self else { return }
-                unwrappedSelf.subject.send(breed)
-            }.store(in: &subscriptions)
-    }
-
-    public lazy var query: AnyPublisher<[Breed], Never> = {
-        subject
             .share()
+            .handleEvents(receiveOutput: { breeds in
+                self.last = breeds
+            })
             .eraseToAnyPublisher()
     }()
+
+    public private(set) var last: [Breed] = []
 }

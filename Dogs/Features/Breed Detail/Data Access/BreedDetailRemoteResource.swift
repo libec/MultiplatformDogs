@@ -1,10 +1,3 @@
-//
-//  BreedDetailRemoteResource.swift
-//  Dogs
-//
-//  Created by Libor Huspenina on 21.10.2021.
-//
-
 import Combine
 import Foundation
 
@@ -25,7 +18,7 @@ public final class BreedDetailRemoteResource: BreedDetailResource {
             .decode(type: BreedDetailResourceDto.self, decoder: JSONDecoder())
             .map { dto in
                 dto.breeds.map { dogImageUrl in
-                    Dog(breed: breed, imageUrl: dogImageUrl)
+                    Dog(imageUrl: dogImageUrl)
                 }
             }
             .eraseToAnyPublisher()
@@ -37,5 +30,6 @@ fileprivate struct BreedDetailResourceDto: Codable {
 
     fileprivate enum CodingKeys: String, CodingKey {
         case breeds = "message"
+
     }
 }

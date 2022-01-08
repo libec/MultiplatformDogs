@@ -1,15 +1,8 @@
-//
-//  SwinjectInstanceProvider.swift
-//  Dogs
-//
-//  Created by Libor Huspenina on 17.10.2021.
-//
-
 import Swinject
 
 class SwinjectInstanceProvider: InstanceProvider {
 
-    let resolver: Resolver
+    private let resolver: Resolver
 
     init(resolver: Resolver) {
         self.resolver = resolver
@@ -17,5 +10,9 @@ class SwinjectInstanceProvider: InstanceProvider {
 
     func resolve<Instance>(_ type: Instance.Type) -> Instance {
         resolver.resolve(type)!
+    }
+
+    func resolve<Instance, Argument>(_ type: Instance.Type, argument: Argument) -> Instance {
+        resolver.resolve(type, argument: argument)!
     }
 }

@@ -1,10 +1,3 @@
-//
-//  QueryBreedsUseCaseTests.swift
-//  DogsTests
-//
-//  Created by Libor Huspenina on 18.10.2021.
-//
-
 import XCTest
 import Combine
 import Dogs
@@ -17,7 +10,7 @@ class QueryBreedsUseCaseTests: XCTestCase {
         let sut = QueryBreedsUseCaseImpl(repository: repository)
 
         let expectation = XCTestExpectation()
-        let repositoryBreeds = ["corgi", "dane"].map(Breed.init)
+        let repositoryBreeds = ["corgi", "dane"].map { Breed(name: $0) }
 
         sut.query()
             .sink { breeds in

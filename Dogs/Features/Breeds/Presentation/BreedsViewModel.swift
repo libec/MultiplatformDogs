@@ -1,67 +1,48 @@
-//
-//  BreedsViewModel.swift
-//  Dogs
-//
-//  Created by Libor Huspenina on 18.10.2021.
-//
-
 import Combine
+import Foundation
 
-public struct DisplayableBreeds {
+public struct DisplayableBreed {
+    public let identifier: ID
     public let name: String
-    public let selection: (() -> Void)
-}
 
-public struct BreedsViewModelOutput {
-    public let displayableBreeds: [DisplayableBreeds]
+    public init(identifier: ID, name: String) {
+        self.name = name
+        self.identifier = identifier
+    }
 }
 
 public protocol BreedsViewModel {
-    var output: AnyPublisher<BreedsViewModelOutput, Never> { get }
-    func fetch()
+    var output: AnyPublisher<[DisplayableBreed], Never> { get }
+    func select(breed: ID)
 }
 
 public final class BreedsViewModelImpl: BreedsViewModel {
 
-    private let fetchUseCase: FetchBreedsUseCase
     private let queryUseCase: QueryBreedsUseCase
     private let selectBreedUseCase: SelectBreedUseCase
 
-    @Published private var outputProperty: BreedsViewModelOutput = .init(displayableBreeds: [])
-
-    public var output: AnyPublisher<BreedsViewModelOutput, Never> {
-        $outputProperty.eraseToAnyPublisher()
+    public var output: AnyPublisher<[DisplayableBreed], Never> {
+        queryUseCase.query().map { breeds in
+            breeds
+                .sorted(by: { lhs, rhs in
+                    lhs.name < rhs.name
+                })
+                .map { breed in
+                    DisplayableBreed(identifier: breed.identifier, name: breed.name.capitalized)
+                }
+        }
+        .eraseToAnyPublisher()
     }
 
     public init(
-        fetchUseCase: FetchBreedsUseCase,
         queryUseCase: QueryBreedsUseCase,
         selectBreedUseCase: SelectBreedUseCase
     ) {
-        self.fetchUseCase = fetchUseCase
         self.queryUseCase = queryUseCase
         self.selectBreedUseCase = selectBreedUseCase
-
-        queryUseCase
-            .query()
-            .map { breeds in
-                BreedsViewModelOutput(
-                    displayableBreeds: breeds
-                        .sorted(by: { lhs, rhs in
-                            lhs.name < rhs.name
-                        })
-                        .map { breed in
-                        DisplayableBreeds(name: breed.name.capitalized) { [weak self] () -> Void in
-                            guard let unwrappedSelf = self else { return }
-                            unwrappedSelf.selectBreedUseCase.select(breed: breed)
-                        }
-                    }
-                )
-            }
-            .assign(to: &$outputProperty)
     }
 
-    public func fetch() {
-        fetchUseCase.fetch()
+    public func select(breed: ID) {
+        selectBreedUseCase.select(breedID: breed)
     }
 }
