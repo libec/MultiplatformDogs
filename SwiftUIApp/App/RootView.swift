@@ -4,9 +4,14 @@ import Dogs
 struct RootView: View {
 
     private let breedView: BreedsView
+    private let favoriteDogsView: BreedDetailView
 
-    init(breedView: BreedsView) {
+    init(
+        breedView: BreedsView,
+        favoriteDogsView: BreedDetailView
+    ) {
         self.breedView = breedView
+        self.favoriteDogsView = favoriteDogsView
     }
 
     var body: some View {
@@ -16,7 +21,7 @@ struct RootView: View {
                     Image(systemName: "pawprint")
                 }
 
-            Text("Favorite dogs up in this tab")
+            favoriteDogsView
                 .tabItem {
                     Image(systemName: "heart")
                 }
