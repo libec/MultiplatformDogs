@@ -31,15 +31,19 @@ final class UIKitCoordinator: Coordinator {
     }
 
     func showBreedDetail() {
-        let viewController = instanceProvider.resolve(BreedsDetailViewController.self)
-        navigationController?.pushViewController(viewController, animated: true)
+        let viewController = instanceProvider.resolve(BreedsDetailViewController.self, argument: BreedDetailDisplayStrategy.specificBreed)
+        breedsNavigationController?.pushViewController(viewController, animated: true)
     }
 
     func hideBreedDetail() {
-        navigationController?.popViewController(animated: true)
+        breedsNavigationController?.popViewController(animated: true)
     }
 
-    private var navigationController: UINavigationController? {
-        window.rootViewController as? UINavigationController
+    private var tabBarController: RootViewController? {
+        window.rootViewController as? RootViewController
+    }
+
+    private var breedsNavigationController: UINavigationController? {
+        tabBarController?.viewControllers?.first as? UINavigationController
     }
 }

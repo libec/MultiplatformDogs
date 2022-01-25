@@ -6,7 +6,12 @@ import UIKit
 class UIKitAppAssembly: Assembly {
     func assemble(container: Container) {
 
-        container.autoregister(BreedsDetailViewController.self, initializer: BreedsDetailViewController.make)
+        container.register(BreedsDetailViewController.self) { (resolver: Resolver, strategy: BreedDetailDisplayStrategy) in
+            return BreedsDetailViewController.make(
+                viewModel: resolver.resolve(BreedDetailViewModel.self, argument: strategy)!,
+                dogCellFactory: resolver.resolve(DogCellFactory.self)!
+            )
+        }
 
         container.autoregister(BreedsViewController.self, initializer: BreedsViewController.make)
 
@@ -23,6 +28,12 @@ class UIKitAppAssembly: Assembly {
         }
 
         container.autoregister(DogCellFactory.self, initializer: DogCellFactoryImpl.init)
+
+        container.register(RootViewController.self) { resolver in
+            let breedsViewController = resolver.resolve(BreedsViewController.self)!
+            let favoriteDogs = resolver.resolve(BreedsDetailViewController.self, argument: BreedDetailDisplayStrategy.favorites)!
+            return RootViewController(breedsViewController: breedsViewController, favoriteDogsViewController: favoriteDogs)
+        }
     }
 
     func loaded(resolver: Resolver) {

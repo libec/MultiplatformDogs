@@ -31,4 +31,3 @@ struct RootView: View {
         }
     }
 }
-
