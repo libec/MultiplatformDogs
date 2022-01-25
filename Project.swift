@@ -38,12 +38,29 @@ let swiftUIApp = Target(
     ]
 )
 
+let macOSApp = Target(
+    name: "macOSApp",
+    platform: .macOS,
+    product: .app,
+    productName: "macOSApp",
+    bundleId: "com.example.dogs.macOS",
+    infoPlist: .default,
+    sources: "macOSApp/**",
+    resources: "macOSApp/Assets/**",
+    dependencies: [
+        .package(product: "Dogs"),
+        .package(product: "Swinject"),
+        .package(product: "SwinjectAutoregistration"),
+    ]
+)
+
+
 let project = Project(
     name: "DogsApp",
     organizationName: "Example",
     packages: packages,
     settings: nil,
-    targets: [uikitApp, swiftUIApp],
+    targets: [uikitApp, swiftUIApp, macOSApp],
     schemes: [
         Scheme(
             name: "UIKitApp",
@@ -66,6 +83,18 @@ let project = Project(
                 configuration: .debug,
                 executable: TargetReference(stringLiteral: "SwiftUIApp")
             )
+        ),
+        Scheme(
+            name: "macOSApp",
+            shared: true,
+            buildAction: BuildAction(targets: [
+                TargetReference(stringLiteral: "macOSApp")
+            ]),
+            runAction: RunAction.runAction(
+                configuration: .debug,
+                executable: TargetReference(stringLiteral: "macOSApp")
+            )
         )
+
     ]
 )
