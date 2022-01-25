@@ -22,21 +22,14 @@ struct BreedsView: View {
 
     var content: some View {
         NavigationView {
-            List {
-                ForEach(output, id: \.name) { breed in
-                    Button(breed.name) {
-                        breedViewModel.select(breed: breed.identifier)
-                    }
-                    .foregroundColor(.black)
+            List(output, id: \.name) { breed in
+                Button(breed.name) {
+                    breedViewModel.select(breed: breed.identifier)
                 }
+                .foregroundColor(.black)
             }
             .navigationTitle("Dogs")
             .modifier(navigation)
         }
     }
-}
-
-protocol BreedItemViewModel {
-    func select()
-    var output: AnyPublisher<String, Never> { get }
 }
