@@ -16,15 +16,12 @@ struct DogImage: View {
         self.imageResource = imageResource
     }
 
-    var dogImage: AnyPublisher<Data?, Never> {
+    func dogImage() async -> Data? {
         guard let url = URL(string: dog.imageUrl) else {
             fatalError()
         }
 
-        return imageResource
-            .imageData(for: url)
-            .receive(on: DispatchQueue.main, options: .none)
-            .eraseToAnyPublisher()
+        return try? await imageResource.imageData(for: url)
     }
 
     var body: some View {
@@ -51,9 +48,8 @@ struct DogImage: View {
                 ProgressView().progressViewStyle(.circular)
                     .frame(width: 50, height: 50, alignment: .center)
             }
-        }
-        .onReceive(dogImage) { imageData in
-            self.imageData = imageData
+        }.task {
+            self.imageData = await dogImage()
         }
     }
 }

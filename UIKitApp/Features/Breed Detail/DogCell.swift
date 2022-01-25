@@ -53,12 +53,9 @@ final class DogCell: UICollectionViewCell {
 
         reload(with: displayableDog)
 
-        resource
-            .imageData(for: url)
-            .receive(on: DispatchQueue.main, options: .none)
-            .sink { data in
-                self.imageView.image = UIImage(data: data!)
-            }.store(in: &subscriptions)
+        Task.init(priority: .userInitiated) {
+            self.imageView.image = try? await resource.imageData(for: url).map { UIImage(data: $0)! }
+        }
     }
 
     private func reload(with dog: DisplayableDog) {

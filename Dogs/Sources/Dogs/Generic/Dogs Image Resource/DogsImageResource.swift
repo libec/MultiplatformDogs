@@ -2,30 +2,24 @@ import Foundation
 import Combine
 
 public protocol DogsImageResource {
-    func imageData(for url: URL) -> AnyPublisher<Data?, Never>
+    func imageData(for url: URL) async throws -> Data?
 }
 
-public final class DogsImageCachedResource: DogsImageResource {
+public actor DogsImageCachedResource: DogsImageResource {
 
     private var dogs: [String: Data?] = [:]
     var subscriptions = Set<AnyCancellable>()
 
     public init() { }
 
-    public func imageData(for url: URL) -> AnyPublisher<Data?, Never> {
+    public func imageData(for url: URL) async throws -> Data? {
         if let image = dogs[url.path] {
-            return Just(image).eraseToAnyPublisher()
-        } else {
-            return URLSession.shared
-                .dataTaskPublisher(for: url)
-                .map { $0.data }
-                .replaceError(with: nil)
-                .handleEvents(receiveOutput: { [unowned self] data in
-                    self.dogs[url.path] = data
-                })
-                .eraseToAnyPublisher()
-
+            return image
         }
+
+        let (data, _) = try await URLSession.shared.data(from: url)
+        dogs[url.path] = data
+        return data
     }
 }
 
