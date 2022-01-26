@@ -1,11 +1,11 @@
 import Combine
 import Foundation
 
-public protocol BreedDetailViewModel {
+public protocol DogsViewModel {
     var output: AnyPublisher<[DisplayableDog], Never> { get }
 }
 
-public final class BreedDetailViewModelImpl: BreedDetailViewModel {
+public final class DogsViewModelImpl: DogsViewModel {
 
     private let queryDogsUseCase: QueryDogsUseCase
     private let queryFavoriteDogsUseCase: QueryFavoriteDogsUseCase

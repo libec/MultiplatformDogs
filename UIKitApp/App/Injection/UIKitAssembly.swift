@@ -6,9 +6,9 @@ import UIKit
 class UIKitAppAssembly: Assembly {
     func assemble(container: Container) {
 
-        container.register(BreedsDetailViewController.self) { (resolver: Resolver, strategy: BreedDetailDisplayStrategy) in
-            return BreedsDetailViewController.make(
-                viewModel: resolver.resolve(BreedDetailViewModel.self, argument: strategy)!,
+        container.register(DogsViewController.self) { (resolver: Resolver, strategy: DogsDisplayStrategy) in
+            return DogsViewController.make(
+                viewModel: resolver.resolve(DogsViewModel.self, argument: strategy)!,
                 dogCellFactory: resolver.resolve(DogCellFactory.self)!
             )
         }
@@ -31,7 +31,7 @@ class UIKitAppAssembly: Assembly {
 
         container.register(RootViewController.self) { resolver in
             let breedsViewController = resolver.resolve(BreedsViewController.self)!
-            let favoriteDogs = resolver.resolve(BreedsDetailViewController.self, argument: BreedDetailDisplayStrategy.favorites)!
+            let favoriteDogs = resolver.resolve(DogsViewController.self, argument: DogsDisplayStrategy.favorites)!
             return RootViewController(breedsViewController: breedsViewController, favoriteDogsViewController: favoriteDogs)
         }
     }

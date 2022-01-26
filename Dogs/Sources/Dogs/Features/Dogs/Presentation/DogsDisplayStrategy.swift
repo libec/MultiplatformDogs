@@ -1,4 +1,4 @@
-public enum BreedDetailDisplayStrategy {
+public enum DogsDisplayStrategy {
     case specificBreed
     case favorites
 }

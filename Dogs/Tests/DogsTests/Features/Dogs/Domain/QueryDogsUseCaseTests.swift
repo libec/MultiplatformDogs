@@ -8,32 +8,32 @@ class QueryDogsUseCaseTests: XCTestCase {
         var subscriptions = Set<AnyCancellable>()
 
         let selectedBreedUseCase = QuerySelectedBreedUseCaseStub()
-        let breedDetailResource = BreedDetailResourceSpy()
+        let dogsResource = DogsResourceSpy()
         let sut = QueryDogsUseCaseImpl(
             selectedBreedUseCase: selectedBreedUseCase,
-            breedDetailResource: breedDetailResource
+            dogsResource: dogsResource
         )
 
         let useCaseBreed = Breed(identifier: "Dog", name: "pitbull")
         selectedBreedUseCase.subject.send(useCaseBreed)
         sut.query().sink(receiveValue: { _ in }).store(in: &subscriptions)
 
-        XCTAssertEqual(breedDetailResource.queryBreed, useCaseBreed)
+        XCTAssertEqual(dogsResource.queryBreed, useCaseBreed)
     }
 
     func test_returns_dogs_from_resource() {
         var subscriptions = Set<AnyCancellable>()
         let selectedBreedUseCase = QuerySelectedBreedUseCaseStub()
-        let breedDetailResource = BreedDetailResourceStub()
+        let dogsResource = DogsResourceStub()
         let sut = QueryDogsUseCaseImpl(
             selectedBreedUseCase: selectedBreedUseCase,
-            breedDetailResource: breedDetailResource
+            dogsResource: dogsResource
         )
 
         let breed = Breed(name: "pitbull")
         let dogs = [Dog(imageUrl: "Imageurl"), Dog(imageUrl: "http://image2")]
         selectedBreedUseCase.subject.send(breed)
-        breedDetailResource.subject.send(dogs)
+        dogsResource.subject.send(dogs)
 
         let expectation = XCTestExpectation()
 
@@ -48,7 +48,7 @@ class QueryDogsUseCaseTests: XCTestCase {
     }
 }
 
-class BreedDetailResourceStub: BreedDetailResource {
+class DogsResourceStub: DogsResource {
 
     let subject = CurrentValueSubject<[Dog], Error>([])
 
@@ -57,7 +57,7 @@ class BreedDetailResourceStub: BreedDetailResource {
     }
 }
 
-class BreedDetailResourceSpy: BreedDetailResource {
+class DogsResourceSpy: DogsResource {
     var queryBreed: Breed?
 
     func query(breed: Breed) -> AnyPublisher<[Dog], Error> {

@@ -1,6 +1,6 @@
 import Combine
 
-public final class FavoriteDogsViewModelImpl: BreedDetailViewModel {
+public final class FavoriteDogsViewModelImpl: DogsViewModel {
 
     private let queryFavoriteDogsUseCase: QueryFavoriteDogsUseCase
 

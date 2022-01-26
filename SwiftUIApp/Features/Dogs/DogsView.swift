@@ -2,23 +2,23 @@ import SwiftUI
 import Combine
 import Dogs
 
-struct BreedDetailView: View {
+struct DogsView: View {
 
-    private let breedDetailViewModel: BreedDetailViewModel
+    private let dogsViewModel: DogsViewModel
     private let instanceProvider: InstanceProvider
 
     @State private var dogs: [DisplayableDog] = []
 
     init(
-        breedDetailViewModel: BreedDetailViewModel,
+        DogsViewModel: DogsViewModel,
         instanceProvider: InstanceProvider
     ) {
-        self.breedDetailViewModel = breedDetailViewModel
+        self.dogsViewModel = DogsViewModel
         self.instanceProvider = instanceProvider
     }
 
     private var dogsOutput: AnyPublisher<[DisplayableDog], Never> {
-        breedDetailViewModel.output
+        dogsViewModel.output
             .receive(on: DispatchQueue.main, options: .none)
             .eraseToAnyPublisher()
     }

@@ -4,13 +4,13 @@ import Dogs
 
 struct DogsView: View {
 
-    private let viewModel: BreedDetailViewModel
+    private let viewModel: DogsViewModel
     private let instanceProvider: InstanceProvider
 
     @State private var dogs: [DisplayableDog] = []
 
     init(
-        viewModel: BreedDetailViewModel,
+        viewModel: DogsViewModel,
         instanceProvider: InstanceProvider
     ) {
         self.viewModel = viewModel

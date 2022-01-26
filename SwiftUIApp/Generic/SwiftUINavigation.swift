@@ -2,9 +2,9 @@ import Combine
 import SwiftUI
 import Dogs
 
-struct SwiftUINavigation: Coordinator, ViewModifier {
+struct SwiftUINavigation: ViewModifier {
 
-    @State private var shownBreedDetail: Bool = false
+    @State private var showDogsList: Bool = false
     private let instanceProvider: InstanceProvider
     private let querySelectedBreedUseCase: QuerySelectedBreedUseCase
     private var subscriptions = Set<AnyCancellable>()
@@ -14,11 +14,11 @@ struct SwiftUINavigation: Coordinator, ViewModifier {
         self.querySelectedBreedUseCase = querySelectedBreedUseCase
     }
 
-    func showBreedDetail() {
+    func showDogs() {
 
     }
 
-    var showDetailPublisher: AnyPublisher<Breed?, Never> {
+    private var showDogsPublisher: AnyPublisher<Breed?, Never> {
         querySelectedBreedUseCase.selectedBreed()
             .receive(on: DispatchQueue.main, options: .none)
             .eraseToAnyPublisher()
@@ -26,9 +26,9 @@ struct SwiftUINavigation: Coordinator, ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .background(NavigationLink(destination: instanceProvider.resolve(BreedDetailView.self, argument: BreedDetailDisplayStrategy.specificBreed), isActive: $shownBreedDetail) { EmptyView() })
-        .onReceive(showDetailPublisher) { selectedBreed in
-            shownBreedDetail = selectedBreed != nil
+            .background(NavigationLink(destination: instanceProvider.resolve(DogsView.self, argument: DogsDisplayStrategy.specificBreed), isActive: $showDogsList) { EmptyView() })
+        .onReceive(showDogsPublisher) { selectedBreed in
+            showDogsList = selectedBreed != nil
         }
     }
 }

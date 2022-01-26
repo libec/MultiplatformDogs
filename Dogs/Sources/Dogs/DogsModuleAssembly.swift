@@ -1,12 +1,12 @@
 import Swinject
 
-public struct DogsAssembly {
+public struct DogsModuleAssembly {
 
     public init() { }
     
     public let assemblies: [Assembly] = [
         APIAssembly(),
-        BreedDetailAssembly(),
+        DogsAssembly(),
         BreedsAssembly(),
         DogsImageResourceAssembly(),
         FavoriteDogsAssembly(),

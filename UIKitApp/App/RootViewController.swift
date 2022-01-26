@@ -2,7 +2,7 @@ import UIKit
 
 class RootViewController: UITabBarController {
 
-    init(breedsViewController: BreedsViewController, favoriteDogsViewController: BreedsDetailViewController) {
+    init(breedsViewController: BreedsViewController, favoriteDogsViewController: DogsViewController) {
         super.init(nibName: nil, bundle: nil)
         let breedsNavigationViewController = UINavigationController(rootViewController: breedsViewController)
         breedsViewController.tabBarItem = UITabBarItem(title: "", image: UIImage(systemName: "pawprint"), selectedImage: UIImage(systemName: "pawprint.fill"))

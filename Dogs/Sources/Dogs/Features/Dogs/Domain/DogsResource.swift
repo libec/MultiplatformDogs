@@ -1,5 +1,5 @@
 import Combine
 
-public protocol BreedDetailResource {
+public protocol DogsResource {
     func query(breed: Breed) -> AnyPublisher<[Dog], Error>
 }

@@ -6,8 +6,8 @@ import SwiftUI
 class MacOSAppAssembly: Assembly {
     func assemble(container: Container) {
         container.register(RootView.self) { resolver in
-            let dogsView = resolver.resolve(DogsView.self, argument: BreedDetailDisplayStrategy.specificBreed)!
-            let favoriteDogs = resolver.resolve(DogsView.self, argument: BreedDetailDisplayStrategy.favorites)!
+            let dogsView = resolver.resolve(DogsView.self, argument: DogsDisplayStrategy.specificBreed)!
+            let favoriteDogs = resolver.resolve(DogsView.self, argument: DogsDisplayStrategy.favorites)!
             return RootView(
                 breedsView: resolver.resolve(BreedsView.self)!,
                 dogsView: dogsView,
@@ -18,9 +18,9 @@ class MacOSAppAssembly: Assembly {
 
         container.autoregister(BreedsView.self, initializer: BreedsView.init)
 
-        container.register(DogsView.self) { (resolver: Resolver, strategy: BreedDetailDisplayStrategy) in
+        container.register(DogsView.self) { (resolver: Resolver, strategy: DogsDisplayStrategy) in
             DogsView(
-                viewModel: resolver.resolve(BreedDetailViewModel.self, argument: strategy)!,
+                viewModel: resolver.resolve(DogsViewModel.self, argument: strategy)!,
                 instanceProvider: resolver.resolve(InstanceProvider.self)!
             )
         }

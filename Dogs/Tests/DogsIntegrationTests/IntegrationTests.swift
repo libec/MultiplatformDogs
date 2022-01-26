@@ -29,9 +29,9 @@ class BreedRemoteResourceTests: XCTestCase {
         wait(for: [expectation], timeout: 3)
     }
 
-    func test_fetches_breed_detail_from_remote_resource() {
+    func test_fetches_dogs_from_remote_resource() {
         let apiConfiguration = ProductionAPIConfiguration()
-        let sut = BreedDetailRemoteResource(apiConfiguration: apiConfiguration)
+        let sut = DogsRemoteResource(apiConfiguration: apiConfiguration)
 
         let expectation = XCTestExpectation()
 

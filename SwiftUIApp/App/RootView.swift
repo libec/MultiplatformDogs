@@ -4,11 +4,11 @@ import Dogs
 struct RootView: View {
 
     private let breedView: BreedsView
-    private let favoriteDogsView: BreedDetailView
+    private let favoriteDogsView: DogsView
 
     init(
         breedView: BreedsView,
-        favoriteDogsView: BreedDetailView
+        favoriteDogsView: DogsView
     ) {
         self.breedView = breedView
         self.favoriteDogsView = favoriteDogsView

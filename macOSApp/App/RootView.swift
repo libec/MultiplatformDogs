@@ -41,7 +41,7 @@ struct RootView: View {
 
     var mainView: some View {
         Group {
-            if navigation.showDetail {
+            if navigation.showDogs {
                 dogsView
             } else {
                 emptyView

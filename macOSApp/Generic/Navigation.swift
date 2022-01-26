@@ -11,10 +11,10 @@ class Navigation: ObservableObject {
 
         querySelectedBreedUseCase.selectedBreed()
             .sink { [weak self] breed in
-                self?.showDetail = breed != nil
+                self?.showDogs = breed != nil
             }
             .store(in: &subscriptions)
     }
 
-    @Published var showDetail: Bool = false
+    @Published var showDogs: Bool = false
 }

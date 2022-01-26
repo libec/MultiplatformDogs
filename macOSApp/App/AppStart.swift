@@ -6,7 +6,7 @@ public struct AppStart {
 
     private var appAssemblies: [Assembly] = [
         MacOSAppAssembly()
-    ] + DogsAssembly().assemblies
+    ] + DogsModuleAssembly().assemblies
 
     public init() { }
 

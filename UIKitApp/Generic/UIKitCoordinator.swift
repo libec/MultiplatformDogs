@@ -22,20 +22,20 @@ final class UIKitCoordinator: Coordinator {
             .sink { [weak self] breed in
                 guard let unwrappedSelf = self else { return }
                 if breed == nil {
-                    unwrappedSelf.hideBreedDetail()
+                    unwrappedSelf.hideDogs()
                 } else {
-                    unwrappedSelf.showBreedDetail()
+                    unwrappedSelf.showDogs()
                 }
             }
             .store(in: &subscriptions)
     }
 
-    func showBreedDetail() {
-        let viewController = instanceProvider.resolve(BreedsDetailViewController.self, argument: BreedDetailDisplayStrategy.specificBreed)
+    func showDogs() {
+        let viewController = instanceProvider.resolve(DogsViewController.self, argument: DogsDisplayStrategy.specificBreed)
         breedsNavigationController?.pushViewController(viewController, animated: true)
     }
 
-    func hideBreedDetail() {
+    func hideDogs() {
         breedsNavigationController?.popViewController(animated: true)
     }
 

@@ -2,14 +2,14 @@ import Combine
 import XCTest
 import Dogs
 
-class BreedsDetailViewModelTests: XCTestCase {
+class DogsViewModelTests: XCTestCase {
 
     func test_returns_displayable_dogs_formatted_from_use_case() {
         var subscriptions = Set<AnyCancellable>()
 
         let queryDogsUseCase = QueryDogsUseCaseStub()
         let queryFavoriteDogsUseCase = QueryFavoriteDogsUseCaseStub(dogs: [ ])
-        let sut = BreedDetailViewModelImpl(
+        let sut = DogsViewModelImpl(
             queryDogsUseCase: queryDogsUseCase,
             queryFavoriteDogsUseCase: queryFavoriteDogsUseCase
         )
@@ -45,7 +45,7 @@ class BreedsDetailViewModelTests: XCTestCase {
             Dog(imageUrl: "image901")
         ])
         let queryDogsUseCase = QueryDogsUseCaseStub()
-        let sut = BreedDetailViewModelImpl(
+        let sut = DogsViewModelImpl(
             queryDogsUseCase: queryDogsUseCase,
             queryFavoriteDogsUseCase: queryFavoriteDogsUseCase
         )

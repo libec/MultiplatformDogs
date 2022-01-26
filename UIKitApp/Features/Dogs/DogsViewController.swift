@@ -3,9 +3,9 @@ import UIKit
 import Combine
 import Dogs
 
-final class BreedsDetailViewController: UIViewController {
+final class DogsViewController: UIViewController {
 
-    private var viewModel: BreedDetailViewModel!
+    private var viewModel: DogsViewModel!
     private var dogCellFactory: DogCellFactory!
 
     private var subscriptions = Set<AnyCancellable>()
@@ -17,10 +17,10 @@ final class BreedsDetailViewController: UIViewController {
     private let insets: CGFloat = 16
 
     static func make(
-        viewModel: BreedDetailViewModel,
+        viewModel: DogsViewModel,
         dogCellFactory: DogCellFactory
-    ) -> BreedsDetailViewController {
-        let viewController = BreedsDetailViewController()
+    ) -> DogsViewController {
+        let viewController = DogsViewController()
         viewController.viewModel = viewModel
         viewController.dogCellFactory = dogCellFactory
         return viewController
@@ -28,7 +28,7 @@ final class BreedsDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Breed Detail"
+        navigationItem.title = "Dogs"
         setupCollectionView()
         bindToViewModel()
     }
@@ -63,7 +63,7 @@ final class BreedsDetailViewController: UIViewController {
     }
 }
 
-extension BreedsDetailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
+extension DogsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
 
     func collectionView(
         _ collectionView: UICollectionView,

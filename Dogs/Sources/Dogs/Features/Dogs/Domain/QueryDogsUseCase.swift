@@ -12,21 +12,21 @@ public protocol QueryDogsUseCase {
 public struct QueryDogsUseCaseImpl: QueryDogsUseCase {
 
     private let selectedBreedUseCase: QuerySelectedBreedUseCase
-    private let breedDetailResource: BreedDetailResource
+    private let dogsResource: DogsResource
 
     public init(
         selectedBreedUseCase: QuerySelectedBreedUseCase,
-        breedDetailResource: BreedDetailResource
+        dogsResource: DogsResource
     ) {
         self.selectedBreedUseCase = selectedBreedUseCase
-        self.breedDetailResource = breedDetailResource
+        self.dogsResource = dogsResource
     }
 
     public func query() -> AnyPublisher<[Dog], Never> {
         selectedBreedUseCase.selectedBreed()
             .flatMap { breed -> AnyPublisher<[Dog], Never> in
                 if let breed = breed {
-                    return breedDetailResource
+                    return dogsResource
                         .query(breed: breed)
                         .replaceError(with: [])
                         .eraseToAnyPublisher()

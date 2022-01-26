@@ -1,7 +1,7 @@
 import Combine
 import Foundation
 
-public final class BreedDetailRemoteResource: BreedDetailResource {
+public final class DogsRemoteResource: DogsResource {
 
     private let apiConfiguration: APIConfiguration
     private var subscriptions: AnyCancellable?
@@ -15,7 +15,7 @@ public final class BreedDetailRemoteResource: BreedDetailResource {
         return URLSession.shared
             .dataTaskPublisher(for: url)
             .map(\.data)
-            .decode(type: BreedDetailResourceDto.self, decoder: JSONDecoder())
+            .decode(type: DogsResourceDto.self, decoder: JSONDecoder())
             .map { dto in
                 dto.breeds.map { dogImageUrl in
                     Dog(imageUrl: dogImageUrl)
@@ -25,7 +25,7 @@ public final class BreedDetailRemoteResource: BreedDetailResource {
     }
 }
 
-fileprivate struct BreedDetailResourceDto: Codable {
+fileprivate struct DogsResourceDto: Codable {
     fileprivate let breeds: [String]
 
     fileprivate enum CodingKeys: String, CodingKey {
