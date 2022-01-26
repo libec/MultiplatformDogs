@@ -24,32 +24,41 @@ struct DogImage: View {
         return try? await imageResource.imageData(for: url)
     }
 
+
     var body: some View {
         Group {
             if let data = imageData, let uiImage = UIImage(data: data) {
-                ZStack {
-                    Image(uiImage: uiImage)
-                        .resizable()
-                        .cornerRadius(16)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 16).stroke(Color.black, lineWidth: 3)
-                        )
-                    VStack {
-                        Spacer()
-                        Image(systemName: dog.favorite ? "heart.fill" : "heart")
-                            .renderingMode(.original)
-                            .font(.largeTitle)
-                            .onTapGesture {
-                                viewModel.toggleFavorite()
-                            }
-                    }
-                }
+                dogView(image: uiImage)
             } else {
-                ProgressView().progressViewStyle(.circular)
+                ProgressView()
+                    .progressViewStyle(.circular)
                     .frame(width: 50, height: 50, alignment: .center)
             }
         }.task {
             self.imageData = await dogImage()
         }
+    }
+
+    private func dogView(image: UIImage) -> some View {
+        ZStack(alignment: .topTrailing) {
+            Image(uiImage: image)
+                .resizable()
+                .clipped()
+            ZStack {
+                Color.white.opacity(0.5)
+                heartButton
+            }
+            .cornerRadius(5)
+            .frame(width: 50, height: 50)
+        }
+    }
+
+    private var heartButton: some View {
+        Image(systemName: dog.favorite ? "heart.fill" : "heart")
+            .renderingMode(.original)
+            .font(.largeTitle)
+            .onTapGesture {
+                viewModel.toggleFavorite()
+            }
     }
 }

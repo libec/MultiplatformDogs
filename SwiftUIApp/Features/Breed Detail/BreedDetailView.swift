@@ -24,7 +24,7 @@ struct BreedDetailView: View {
     }
 
     var body: some View {
-        DogsCollectionView(dogs: dogs, instanceProvider: instanceProvider)
+        DogsGridView(dogs: dogs, instanceProvider: instanceProvider)
             .onReceive(dogsOutput) { dogs in
                 self.dogs = dogs
             }

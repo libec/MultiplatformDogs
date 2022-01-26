@@ -55,6 +55,7 @@ final class DogCell: UICollectionViewCell {
 
         Task.init(priority: .userInitiated) {
             self.imageView.image = try? await resource.imageData(for: url).map { UIImage(data: $0)! }
+            self.likeButton?.isHidden = false
         }
     }
 
@@ -78,5 +79,6 @@ final class DogCell: UICollectionViewCell {
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         bringSubviewToFront(button)
         self.likeButton = button
+        self.likeButton?.isHidden = true
     }
 }

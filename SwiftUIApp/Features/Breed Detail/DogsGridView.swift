@@ -1,7 +1,7 @@
 import SwiftUI
 import Dogs
 
-struct DogsCollectionView: View {
+struct DogsGridView: View {
 
     var dogs: [DisplayableDog]
     private let instanceProvider: InstanceProvider
@@ -18,21 +18,19 @@ struct DogsCollectionView: View {
     var body: some View {
         GeometryReader { reader in
             ScrollView {
-                dogsGrid()
+                dogsGrid(size: reader.size)
             }
         }
     }
 
-    private func dogsGrid() -> LazyVGrid<ForEach<[DisplayableDog], String, some View>> {
-        LazyVGrid(columns: gridItems, alignment: .center, spacing: 16) {
+    private func dogsGrid(size: CGSize) -> some View {
+        LazyVGrid(columns: gridItems, alignment: .center, spacing: 0) {
             ForEach(dogs, id: \.imageUrl) { dog in
-                let size = reader.size.width / Double(gridItems.count) - 16
                 dogImage(for: dog)
-                    .frame(
-                        width: size,
-                        height: size,
-                        alignment: .center
-                    )
+                    .aspectRatio(1, contentMode: .fill)
+                    .cornerRadius(10)
+                    .padding(5)
+
             }
         }
     }

@@ -46,7 +46,7 @@ let macOSApp = Target(
     bundleId: "com.example.dogs.macOS",
     infoPlist: .default,
     sources: "macOSApp/**",
-    resources: "macOSApp/Assets/**",
+    resources: "macOSApp/App/Assets/**",
     dependencies: [
         .package(product: "Dogs"),
         .package(product: "Swinject"),

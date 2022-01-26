@@ -51,7 +51,7 @@ struct DogImage: View {
         }
     }
 
-    var heartButton: some View {
+    private var heartButton: some View {
         Image(systemName: dog.favorite ? "heart.fill" : "heart")
             .renderingMode(.original)
             .font(.largeTitle)
