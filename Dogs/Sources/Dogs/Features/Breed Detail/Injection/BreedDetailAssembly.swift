@@ -21,6 +21,7 @@ final class BreedDetailAssembly: Assembly {
                 )
             }
         }
+        .inObjectScope(.transient)
 
         container.register(DogViewModel.self) { resolver, displayableDog in
             DogViewModelImpl(

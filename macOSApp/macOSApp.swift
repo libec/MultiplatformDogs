@@ -7,8 +7,11 @@ struct macOSAppApp: App {
 
     var body: some Scene {
         WindowGroup {
-            let view: RootView = appStart.startApp()
-            view
+            rootView
         }
+    }
+
+    var rootView: RootView {
+        appStart.startApp()
     }
 }

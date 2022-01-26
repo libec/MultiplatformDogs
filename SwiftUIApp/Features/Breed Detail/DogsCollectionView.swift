@@ -18,17 +18,21 @@ struct DogsCollectionView: View {
     var body: some View {
         GeometryReader { reader in
             ScrollView {
-                LazyVGrid(columns: gridItems, alignment: .center, spacing: 16) {
-                    ForEach(dogs, id: \.imageUrl) { dog in
-                        let size = reader.size.width / Double(gridItems.count) - 16
-                        dogImage(for: dog)
-                            .frame(
-                                width: size,
-                                height: size,
-                                alignment: .center
-                            )
-                    }
-                }
+                dogsGrid()
+            }
+        }
+    }
+
+    private func dogsGrid() -> LazyVGrid<ForEach<[DisplayableDog], String, some View>> {
+        LazyVGrid(columns: gridItems, alignment: .center, spacing: 16) {
+            ForEach(dogs, id: \.imageUrl) { dog in
+                let size = reader.size.width / Double(gridItems.count) - 16
+                dogImage(for: dog)
+                    .frame(
+                        width: size,
+                        height: size,
+                        alignment: .center
+                    )
             }
         }
     }

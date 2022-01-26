@@ -22,4 +22,3 @@ public actor DogsImageCachedResource: DogsImageResource {
         return data
     }
 }
-
