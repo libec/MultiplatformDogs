@@ -24,12 +24,22 @@ struct RootView: View {
         NavigationView {
             sidebar
                 .frame(minWidth: 150, maxWidth: 300)
-            HStack {
+            HStack(alignment: .center) {
                 mainView
-                favoriteView
+                if navigation.showFavoriteDogs {
+                    favoriteView
+                }
             }
-            .frame(minWidth: 200, idealWidth: 300)
+            .toolbar {
+                ToolbarItem(placement: ToolbarItemPlacement.status) {
+                    Image(systemName: navigation.showFavoriteDogs ? "heart.fill" : "heart")
+                        .onTapGesture {
+                            navigation.showFavoriteDogs = !navigation.showFavoriteDogs
+                        }
+                }
+            }
         }
+
         .frame(maxWidth: 1200, maxHeight: 900)
     }
 

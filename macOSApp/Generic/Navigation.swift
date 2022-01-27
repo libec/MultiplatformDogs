@@ -17,4 +17,5 @@ class Navigation: ObservableObject {
     }
 
     @Published var showDogs: Bool = false
+    @Published var showFavoriteDogs: Bool = false
 }

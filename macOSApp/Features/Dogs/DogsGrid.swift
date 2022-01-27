@@ -28,6 +28,7 @@ struct DogsGrid: View {
                             .aspectRatio(1, contentMode: .fill)
                             .cornerRadius(15)
                             .padding(5)
+                            .frame(idealHeight: 200)
                     }
                 }
             }
