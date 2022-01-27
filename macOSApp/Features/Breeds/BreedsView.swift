@@ -13,6 +13,9 @@ struct BreedsView: View {
         .onReceive(breedViewModel.output) { breeds in
             self.breeds = breeds
         }
+        .onAppear {
+            breedViewModel.fetchBreeds()
+        }
     }
 }
 

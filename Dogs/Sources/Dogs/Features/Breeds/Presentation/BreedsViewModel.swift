@@ -1,7 +1,7 @@
 import Combine
 import Foundation
 
-public struct DisplayableBreed {
+public struct DisplayableBreed: Equatable {
     public let identifier: ID
     public let name: String
 

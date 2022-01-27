@@ -5,8 +5,8 @@ import Dogs
 struct BreedsView: View {
 
     @State private var output: [DisplayableBreed] = []
-    let breedViewModel: BreedsViewModel
-    let navigation: SwiftUINavigation
+    private let breedViewModel: BreedsViewModel
+    private let navigation: SwiftUINavigation
 
     init(breedViewModel: BreedsViewModel, navigation: SwiftUINavigation) {
         self.breedViewModel = breedViewModel
@@ -15,9 +15,12 @@ struct BreedsView: View {
 
     var body: some View {
         content
-        .onReceive(breedViewModel.output) { output in
-            self.output = output
-        }
+            .onReceive(breedViewModel.output) { output in
+                self.output = output
+            }
+            .onAppear {
+                breedViewModel.fetchBreeds()
+            }
     }
 
     var content: some View {
