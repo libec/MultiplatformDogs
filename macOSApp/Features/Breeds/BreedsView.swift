@@ -1,20 +1,27 @@
 import SwiftUI
 import Dogs
+import Combine
 
 struct BreedsView: View {
 
     @State private var breeds: [DisplayableBreed] = []
-    let breedViewModel: BreedsViewModel
+    let viewModel: BreedsViewModel
+
+    private var breedsOutput: AnyPublisher<[DisplayableBreed], Never> {
+        viewModel.output
+            .receive(on: DispatchQueue.main, options: .none)
+            .eraseToAnyPublisher()
+    }
 
     var body: some View {
         BreedList(breeds: breeds) { breed in
-            breedViewModel.select(breed: breed.identifier)
+            viewModel.select(breed: breed.identifier)
         }
-        .onReceive(breedViewModel.output) { breeds in
+        .onReceive(breedsOutput) { breeds in
             self.breeds = breeds
         }
         .onAppear {
-            breedViewModel.fetchBreeds()
+            viewModel.fetchBreeds()
         }
     }
 }

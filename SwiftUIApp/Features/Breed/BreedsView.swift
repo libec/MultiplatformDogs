@@ -5,21 +5,27 @@ import Dogs
 struct BreedsView: View {
 
     @State private var output: [DisplayableBreed] = []
-    private let breedViewModel: BreedsViewModel
+    private let viewModel: BreedsViewModel
     private let navigation: SwiftUINavigation
 
-    init(breedViewModel: BreedsViewModel, navigation: SwiftUINavigation) {
-        self.breedViewModel = breedViewModel
+    init(viewModel: BreedsViewModel, navigation: SwiftUINavigation) {
+        self.viewModel = viewModel
         self.navigation = navigation
+    }
+
+    private var breedsOutput: AnyPublisher<[DisplayableBreed], Never> {
+        viewModel.output
+            .receive(on: DispatchQueue.main, options: .none)
+            .eraseToAnyPublisher()
     }
 
     var body: some View {
         content
-            .onReceive(breedViewModel.output) { output in
+            .onReceive(breedsOutput) { output in
                 self.output = output
             }
             .onAppear {
-                breedViewModel.fetchBreeds()
+                viewModel.fetchBreeds()
             }
     }
 
@@ -27,7 +33,7 @@ struct BreedsView: View {
         NavigationView {
             List(output, id: \.name) { breed in
                 Button(breed.name) {
-                    breedViewModel.select(breed: breed.identifier)
+                    viewModel.select(breed: breed.identifier)
                 }
                 .foregroundColor(.black)
             }

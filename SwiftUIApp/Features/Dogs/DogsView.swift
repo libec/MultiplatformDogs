@@ -4,7 +4,7 @@ import Dogs
 
 struct DogsView: View {
 
-    private let dogsViewModel: DogsViewModel
+    private let viewModel: DogsViewModel
     private let instanceProvider: InstanceProvider
 
     @State private var dogs: [DisplayableDog] = []
@@ -13,12 +13,12 @@ struct DogsView: View {
         DogsViewModel: DogsViewModel,
         instanceProvider: InstanceProvider
     ) {
-        self.dogsViewModel = DogsViewModel
+        self.viewModel = DogsViewModel
         self.instanceProvider = instanceProvider
     }
 
     private var dogsOutput: AnyPublisher<[DisplayableDog], Never> {
-        dogsViewModel.output
+        viewModel.output
             .receive(on: DispatchQueue.main, options: .none)
             .eraseToAnyPublisher()
     }
