@@ -10,7 +10,8 @@ class BreedsViewModelTests: XCTestCase {
         let queryBreedsUseCase = QueryBreedsUseCaseStub(breeds: useCaseBreeds)
         let sut = BreedsViewModelImpl(
             queryUseCase: queryBreedsUseCase,
-            selectBreedUseCase: SelectBreedUseCaseDummy()
+            selectBreedUseCase: SelectBreedUseCaseDummy(),
+            fetchBreedsUseCase: FetchBreedsUseCaseDummy()
         )
 
         let expectation = XCTestExpectation()
@@ -21,7 +22,6 @@ class BreedsViewModelTests: XCTestCase {
             }
             .store(in: &subscriptions)
 
-
         wait(for: [expectation], timeout: .leastNonzeroMagnitude)
     }
 
@@ -31,11 +31,25 @@ class BreedsViewModelTests: XCTestCase {
         let selectBreedUseCase = SelectBreedUseCaseSpy()
         let sut = BreedsViewModelImpl(
             queryUseCase: queryBreedsUseCase,
-            selectBreedUseCase: selectBreedUseCase
+            selectBreedUseCase: selectBreedUseCase,
+            fetchBreedsUseCase: FetchBreedsUseCaseDummy()
         )
         sut.select(breed: "Dog_123_11")
 
         XCTAssertEqual(selectBreedUseCase.selectedBreedId, "Dog_123_11")
+    }
+
+    func test_fetch_uses_use_case() {
+        let fetchBreedsUseCase = FetchBreedsUseCaseSpy()
+        let sut = BreedsViewModelImpl(
+            queryUseCase: QueryBreedsUseCaseDummy(),
+            selectBreedUseCase: SelectBreedUseCaseDummy(),
+            fetchBreedsUseCase: fetchBreedsUseCase
+        )
+
+        sut.fetchBreeds()
+
+        XCTAssertTrue(try XCTUnwrap(fetchBreedsUseCase.fetchCalled))
     }
 }
 
@@ -64,5 +78,15 @@ class QueryBreedsUseCaseStub: QueryBreedsUseCase {
 
     func query() -> AnyPublisher<[Breed], Never> {
         breedSubject.eraseToAnyPublisher()
+    }
+}
+
+typealias FetchBreedsUseCaseDummy = FetchBreedsUseCaseSpy
+class FetchBreedsUseCaseSpy: FetchBreedsUseCase {
+
+    var fetchCalled: Bool?
+
+    func fetch() {
+        fetchCalled = true
     }
 }

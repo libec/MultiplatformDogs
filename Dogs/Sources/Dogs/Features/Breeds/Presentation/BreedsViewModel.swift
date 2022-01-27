@@ -14,12 +14,24 @@ public struct DisplayableBreed {
 public protocol BreedsViewModel {
     var output: AnyPublisher<[DisplayableBreed], Never> { get }
     func select(breed: ID)
+    func fetchBreeds()
 }
 
 public final class BreedsViewModelImpl: BreedsViewModel {
 
     private let queryUseCase: QueryBreedsUseCase
     private let selectBreedUseCase: SelectBreedUseCase
+    private let fetchBreedsUseCase: FetchBreedsUseCase
+
+    public init(
+        queryUseCase: QueryBreedsUseCase,
+        selectBreedUseCase: SelectBreedUseCase,
+        fetchBreedsUseCase: FetchBreedsUseCase
+    ) {
+        self.queryUseCase = queryUseCase
+        self.selectBreedUseCase = selectBreedUseCase
+        self.fetchBreedsUseCase = fetchBreedsUseCase
+    }
 
     public var output: AnyPublisher<[DisplayableBreed], Never> {
         queryUseCase.query().map { breeds in
@@ -34,15 +46,11 @@ public final class BreedsViewModelImpl: BreedsViewModel {
         .eraseToAnyPublisher()
     }
 
-    public init(
-        queryUseCase: QueryBreedsUseCase,
-        selectBreedUseCase: SelectBreedUseCase
-    ) {
-        self.queryUseCase = queryUseCase
-        self.selectBreedUseCase = selectBreedUseCase
-    }
-
     public func select(breed: ID) {
         selectBreedUseCase.select(breedID: breed)
+    }
+
+    public func fetchBreeds() {
+        fetchBreedsUseCase.fetch()
     }
 }
