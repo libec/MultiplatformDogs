@@ -4,11 +4,22 @@ import Dogs
 
 class BreedsLocalRepositoryTests: XCTestCase {
 
+    func test_fetch_prompts_breed_resource() {
+        let breedsResource = BreedsResourceSpy()
+        let sut = BreedsLocalRepository(breedsResource: breedsResource)
+
+        sut.fetch()
+
+        XCTAssertTrue(breedsResource.fetchCalled)
+    }
+
     func test_result_from_fetch_can_be_queried() {
         var subscriptions = Set<AnyCancellable>()
         let breedsResource = BreedsResourceStub()
         let sut = BreedsLocalRepository(breedsResource: breedsResource)
-        let resourceBreeds = ["akita", "boxer", "chow"].map {Breed(name: $0) }
+        let resourceBreeds = ["akita", "boxer", "chow"].map { Breed(name: $0) }
+        sut.fetch()
+        breedsResource.subject.send(resourceBreeds)
 
         let expectation = XCTestExpectation()
 
@@ -17,27 +28,6 @@ class BreedsLocalRepositoryTests: XCTestCase {
             expectation.fulfill()
         }
         .store(in: &subscriptions)
-        breedsResource.subject.send(resourceBreeds)
-
-        wait(for: [expectation], timeout: .leastNonzeroMagnitude)
-    }
-
-    func test_result_from_fetch_are_stored() {
-        var subscriptions = Set<AnyCancellable>()
-        let breedsResource = BreedsResourceStub()
-        let sut = BreedsLocalRepository(breedsResource: breedsResource)
-        let resourceBreeds = ["akita", "boxer", "chow"].map {Breed(name: $0) }
-
-        let expectation = XCTestExpectation()
-
-        sut.query.sink { breeds in
-            XCTAssertEqual(breeds, resourceBreeds)
-            expectation.fulfill()
-        }
-        .store(in: &subscriptions)
-        breedsResource.subject.send(resourceBreeds)
-
-        XCTAssertEqual(sut.last, resourceBreeds)
 
         wait(for: [expectation], timeout: .leastNonzeroMagnitude)
     }
@@ -54,6 +44,7 @@ class BreedsLocalRepositoryTests: XCTestCase {
             expectation.fulfill()
         }
         .store(in: &subscriptions)
+        sut.fetch()
         breedsResource.subject.send(completion: .failure(TestError.error))
 
         wait(for: [expectation], timeout: .leastNonzeroMagnitude)
