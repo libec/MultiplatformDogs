@@ -8,5 +8,6 @@ final class BreedsAssembly: Assembly {
             .inObjectScope(.container)
         container.autoregister(QueryBreedsUseCase.self, initializer: QueryBreedsUseCaseImpl.init)
         container.autoregister(BreedsViewModel.self, initializer: BreedsViewModelImpl.init)
+        container.autoregister(FetchBreedsUseCase.self, initializer: FetchBreedsUseCaseImpl.init)
     }
 }
