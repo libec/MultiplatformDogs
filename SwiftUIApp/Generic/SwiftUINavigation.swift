@@ -6,20 +6,19 @@ struct SwiftUINavigation: ViewModifier {
 
     @State private var showDogsList: Bool = false
     private let instanceProvider: InstanceProvider
-    private let querySelectedBreedUseCase: QuerySelectedBreedUseCase
+    private let navigation: Navigation
     private var subscriptions = Set<AnyCancellable>()
 
-    init(instanceProvider: InstanceProvider, querySelectedBreedUseCase: QuerySelectedBreedUseCase) {
+    init(
+        instanceProvider: InstanceProvider,
+        navigation: Navigation
+    ) {
         self.instanceProvider = instanceProvider
-        self.querySelectedBreedUseCase = querySelectedBreedUseCase
+        self.navigation = navigation
     }
 
-    func showDogs() {
-
-    }
-
-    private var showDogsPublisher: AnyPublisher<Breed?, Never> {
-        querySelectedBreedUseCase.selectedBreed()
+    private var showDogsPublisher: AnyPublisher<Bool, Never> {
+        navigation.showDogs
             .receive(on: DispatchQueue.main, options: .none)
             .eraseToAnyPublisher()
     }
@@ -27,8 +26,8 @@ struct SwiftUINavigation: ViewModifier {
     func body(content: Content) -> some View {
         content
             .background(NavigationLink(destination: instanceProvider.resolve(DogsView.self, argument: DogsDisplayStrategy.specificBreed), isActive: $showDogsList) { EmptyView() })
-        .onReceive(showDogsPublisher) { selectedBreed in
-            showDogsList = selectedBreed != nil
+        .onReceive(showDogsPublisher) { showDogs in
+            showDogsList = showDogs
         }
     }
 }

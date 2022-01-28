@@ -2,29 +2,31 @@ import UIKit
 import Dogs
 import Combine
 
-final class UIKitCoordinator: Coordinator {
+final class UIKitNavigation {
 
     let window: UIWindow
     let instanceProvider: InstanceProvider
+    let navigation: Navigation
 
     private var subscriptions = Set<AnyCancellable>()
 
     init(
         window: UIWindow,
         instanceProvider: InstanceProvider,
-        querySelectedBreedUseCase: QuerySelectedBreedUseCase
+        navigation: Navigation
     ) {
         self.window = window
         self.instanceProvider = instanceProvider
+        self.navigation = navigation
 
-        querySelectedBreedUseCase.selectedBreed()
+        navigation.showDogs
             .receive(on: DispatchQueue.main, options: .none)
-            .sink { [weak self] breed in
+            .sink { [weak self] showDogs in
                 guard let unwrappedSelf = self else { return }
-                if breed == nil {
-                    unwrappedSelf.hideDogs()
-                } else {
+                if showDogs {
                     unwrappedSelf.showDogs()
+                } else {
+                    unwrappedSelf.hideDogs()
                 }
             }
             .store(in: &subscriptions)

@@ -15,7 +15,7 @@ class UIKitAppAssembly: Assembly {
 
         container.autoregister(BreedsViewController.self, initializer: BreedsViewController.make)
 
-        container.autoregister(Coordinator.self, initializer: UIKitCoordinator.init)
+        container.autoregister(UIKitNavigation.self, initializer: UIKitNavigation.init)
             .inObjectScope(.container)
 
         container.register(UIWindow.self) { _ in
@@ -37,6 +37,6 @@ class UIKitAppAssembly: Assembly {
     }
 
     func loaded(resolver: Resolver) {
-        _ = resolver.resolve(Coordinator.self)
+        _ = resolver.resolve(UIKitNavigation.self)
     }
 }

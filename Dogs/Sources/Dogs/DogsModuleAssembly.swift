@@ -11,6 +11,7 @@ public struct DogsModuleAssembly {
         DogsImageResourceAssembly(),
         FavoriteDogsAssembly(),
         InstanceProviderAssembly(),
+        NavigationAssembly(),
         SelectedBreedsAssembly(),
     ]
 }

@@ -3,15 +3,15 @@ import Dogs
 
 class Navigation: ObservableObject {
 
-    private let querySelectedBreedUseCase: QuerySelectedBreedUseCase
+    private let navigation: Dogs.Navigation
     private var subscriptions = Set<AnyCancellable>()
 
-    init(querySelectedBreedUseCase: QuerySelectedBreedUseCase) {
-        self.querySelectedBreedUseCase = querySelectedBreedUseCase
+    init(navigation: Dogs.Navigation) {
+        self.navigation = navigation
 
-        querySelectedBreedUseCase.selectedBreed()
-            .sink { [weak self] breed in
-                self?.showDogs = breed != nil
+        navigation.showDogs
+            .sink { [weak self] showDogs in
+                self?.showDogs = showDogs
             }
             .store(in: &subscriptions)
     }

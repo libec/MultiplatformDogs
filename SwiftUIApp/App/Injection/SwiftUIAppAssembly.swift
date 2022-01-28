@@ -6,7 +6,7 @@ import SwiftUI
 class SwiftUIAppAssembly: Assembly {
     func assemble(container: Container) {
         container.autoregister(BreedsView.self, initializer: BreedsView.init)
-        container.autoregister(SwiftUINavigation.self, initializer: SwiftUINavigation.init).implements(Coordinator.self).inObjectScope(.container)
+        container.autoregister(SwiftUINavigation.self, initializer: SwiftUINavigation.init).inObjectScope(.container)
         container.register(DogsView.self) { (resolver: Resolver, strategy: DogsDisplayStrategy) in
             DogsView(
                 DogsViewModel: resolver.resolve(DogsViewModel.self, argument: strategy)!,
