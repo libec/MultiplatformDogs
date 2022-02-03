@@ -1,13 +1,13 @@
 import Combine
 import Foundation
 
-public struct DisplayableBreed: Equatable {
-    public let identifier: ID
+public struct DisplayableBreed: Identifiable {
+    public let id: ID
     public let name: String
 
-    public init(identifier: ID, name: String) {
+    public init(id: ID, name: String) {
         self.name = name
-        self.identifier = identifier
+        self.id = id
     }
 }
 
@@ -40,7 +40,7 @@ public final class BreedsViewModelImpl: BreedsViewModel {
                     lhs.name < rhs.name
                 })
                 .map { breed in
-                    DisplayableBreed(identifier: breed.identifier, name: breed.name.capitalized)
+                    DisplayableBreed(id: breed.identifier, name: breed.name.capitalized)
                 }
         }
         .eraseToAnyPublisher()

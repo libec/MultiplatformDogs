@@ -44,9 +44,7 @@ struct RootView: View {
     }
 
     var sidebar: some View {
-        List {
-            breedsView
-        }
+        breedsView
     }
 
     var mainView: some View {

@@ -31,9 +31,9 @@ struct BreedsView: View {
 
     var content: some View {
         NavigationView {
-            List(output, id: \.name) { breed in
+            List(output) { breed in
                 Button(breed.name) {
-                    viewModel.select(breed: breed.identifier)
+                    viewModel.select(breed: breed.id)
                 }
                 .foregroundColor(.black)
             }
