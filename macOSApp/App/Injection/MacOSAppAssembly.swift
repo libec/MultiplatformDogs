@@ -31,8 +31,7 @@ class MacOSAppAssembly: Assembly {
         container.register(DogImage.self) { (resolver: Resolver, dog: DisplayableDog) in
             return DogImage(
                 dog: dog,
-                viewModel: resolver.resolve(DogViewModel.self, argument: dog)!,
-                imageResource: resolver.resolve(DogsImageResource.self)!
+                viewModel: resolver.resolve(DogViewModel.self, argument: dog)!
             )
         }
     }
