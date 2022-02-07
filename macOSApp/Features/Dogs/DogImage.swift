@@ -15,24 +15,23 @@ struct DogImage: View {
         self.dog = dog
         self.viewModel = viewModel
     }
-
+    
     var body: some View {
-        ZStack(alignment: .topTrailing) {
-            AsyncImage(url: URL(string: dog.imageUrl)) { image in
+        AsyncImage(url: URL(string: dog.imageUrl)) { image in
+            ZStack(alignment: .topTrailing) {
                 image.resizable()
-            } placeholder: {
-                ProgressView()
+                ZStack {
+                    Color.white.opacity(0.5)
+                    heartButton
+                }
+                .frame(width: 50, height: 50)
+                .cornerRadius(5)
             }
-
-            ZStack {
-                Color.white.opacity(0.5)
-                heartButton
-            }
-            .cornerRadius(5)
-            .frame(width: 50, height: 50)
+        } placeholder: {
+            ProgressView()
         }
     }
-
+    
     private var heartButton: some View {
         Image(systemName: dog.favorite ? "heart.fill" : "heart")
             .renderingMode(.original)
