@@ -50,5 +50,3 @@ playground.xcworkspace
 
 # tuist stuff
 Derived/*
-*.xcodeproj
-*.xcworkspace
