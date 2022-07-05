@@ -11,6 +11,9 @@ The app is quite simple and has only three features:
 * collection of dog images for each breed,
 * and a collection of user-favorite dogs.
 
+![app.gif](https://github.com/libec/MultiplatformDogs/blob/develop/Docs/app.gif)
+
+
 ## What's the purpose?
 Demonstrate that it's possible to have one module shared across multiple apps - **regardless of the UI framework** used to render it on the screen. The swift package contains everything besides the client-specific View layer.
 
