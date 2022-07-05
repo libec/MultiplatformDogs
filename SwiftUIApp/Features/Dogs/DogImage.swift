@@ -32,7 +32,7 @@ struct DogImage: View {
             } else {
                 ProgressView()
                     .progressViewStyle(.circular)
-                    .frame(width: 50, height: 50, alignment: .center)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
             }
         }.task {
             self.imageData = await dogImage()
