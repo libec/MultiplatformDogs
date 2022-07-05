@@ -1,39 +1,48 @@
-# Dogs App
-## Architecture
-* uses some principles of clean architecture:
-    * limits 3rd party libraries exposure
-    * depend on abstractions
-    * TDD thoroughly
-    * dependency rule - higher level abstractions don't depend on lower level.
-    * is kinda domain driven
-    * uses Command Query Request separation - command which mutate data are separated from queries
-        * Helps share and propagate state and simplify presentation greatly
-* components are separated into layers (which are not mandatory though)
-    * View (ViewControllers, Views, ..)
-        * renders data
-    * Presentation (ViewModels, Formatters)
-        * transforms data for View to render
-        * passes actions to domain
-        * Uses Wireframes, Coordinators or whatever to navigate between scenes
-    * Domain (UseCases, Repository interfaces, Repositories sometimes)
-        * Business logic, uses stateless UseCases to access Repositories
-    * Data Access (Repositories, Resources)
-        * Uses Resources to access local or remote data
+# Multiplatform Dogs
+If you're interested in Dogs and Multiplatform code, this is the right place.
 
-### App is separated in modules
-Or rather should be, but I skipped that for this scale to focus on more important bits.
-Module dependencies also adhere to dependency rule - module can't depend on module from higher level.
-This is to further enforce boundaries, for instance feature should not be imported in generic or infrastructure.
-* App
-* Features
-* Generic
-* Infrastructure
+This repository contains a swift package that shares application logic between:
+* iOS app which uses UIKit,
+* iOS app which uses SwiftUI,
+* and macOS app.
+
+The app is quite simple and has only three features:
+* List of dog breeds,
+* collection of dog images for each breed,
+* and a collection of user-favorite dogs.
+
+## What's the purpose?
+Demonstrate that it's possible to have one module shared across multiple apps - **regardless of the UI framework** used to render it on the screen. The swift package contains everything besides the client-specific View layer.
+
+## Applied principles
+**Command Query Responsibility Segregation**
+* Commands that modify data are separated from queries.
+* Subscription to state updates comes easy with no overhead. 
+
+**Repository Pattern**
+* Stores and distributes the state.
+* Shields domain logic from the data access.
+
+**Dependency Injection**
+* Swift package contains a complete dependency graph.
+* It's then extended by the specifics of the client apps.
+* Uses scopes to share repository implementations.
+
+**Test Driven Development**
+* Ensures that DI is done right.
+* Serves as executable documentation.
+* Makes sure each component is the right size, as the big classes are difficult to test.
+
+## What's not the purpose?
+The purpose is **NOT** to demonstrate and establish best practices in SwiftUI and Combine. There are multiple ways to implement DI, CQRS, handle state, SwiftUI re-rendering, etc. Consider this just one example.
 
 ## How to install
-* Uses [tuist](https://docs.tuist.io/tutorial/get-started) to generate project
-* Run `tuist generate` and open generated workspace
-* Open Xcode and run, all 3rd party libraries are installed using Swift package manager
-* Developed using Xcode 13.2.1
+* Open in Xcode (preferably 13.4.1)
+* Wait for the SPM to do its thing
+* Run
+
+## Who and why
+I did this in my free time to learn. It later became a workshop for cleverlance.com - thanks for providing me with additional time to finish.
 
 ## API
 https://dog.ceo/dog-api/
