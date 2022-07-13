@@ -20,7 +20,7 @@ Demonstrate that it's possible to have one module shared across multiple apps - 
 ## Applied principles
 **Command Query Responsibility Segregation**
 * Commands that modify data are separated from queries.
-* Subscription to state updates comes easy with no overhead. 
+* Subscription to state updates comes easy with no overhead.
 
 **Repository Pattern**
 * Stores and distributes the state.
@@ -46,6 +46,3 @@ The purpose is **NOT** to demonstrate and establish best practices in SwiftUI an
 
 ## Who and why
 I did this in my free time to learn. It later became a workshop for cleverlance.com - thanks for providing me with additional time to finish.
-
-## API
-https://dog.ceo/dog-api/
