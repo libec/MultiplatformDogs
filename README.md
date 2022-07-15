@@ -1,10 +1,12 @@
 # Multiplatform Dogs
 If you're interested in Dogs and Multiplatform code, this is the right place.
 
-This repository contains a swift package that shares application logic between:
-* iOS app which uses UIKit,
-* iOS app which uses SwiftUI,
-* and macOS app.
+This repository contains a swift package that shares application logic between 3 clients:
+
+![package.png](https://github.com/libec/MultiplatformDogs/blob/develop/Docs/package.png)
+
+Each clients injects it's View to complete the dependency graph:
+![architecture.png](https://github.com/libec/MultiplatformDogs/blob/develop/Docs/architecture.png)
 
 The app is quite simple and has only three features:
 * List of dog breeds,
