@@ -5,7 +5,9 @@ This repository contains a swift package that shares application logic between 3
 
 ![package.png](https://github.com/libec/MultiplatformDogs/blob/develop/Docs/package.png)
 
+
 Each clients injects it's View to complete the dependency graph:
+
 ![architecture.png](https://github.com/libec/MultiplatformDogs/blob/develop/Docs/architecture.png)
 
 The app is quite simple and has only three features:
